@@ -1,0 +1,151 @@
+body.login {
+	padding: 50px;
+	background: $gr;
+	@media screen and (max-width: 1120px) {
+		padding: 2vh;
+	}
+}
+
+.login-wraper {
+	position: relative;
+	flex: 1 0 100%;
+	align-items: center;
+	justify-content: flex-end;
+	background-image: url(/images/l_dot.png);
+	@media screen and (max-width: 1120px) {
+		align-items: flex-start;
+	}
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;left: 0;right: 00%;bottom: 0;
+		background: linear-gradient(to left, rgba(58,181,74,1), rgba(58,181,74,.0)),
+					linear-gradient(to top, rgba(58,181,74,.8), rgba(58,181,74,.0));
+	}
+}
+.main-title {
+	z-index: 10;
+	flex: 0 1 44%;
+	padding-left: 4%;
+	padding-top: 31vh;
+	align-self: flex-start;
+	font-family: 'Press Start 2P';
+	@media screen and (max-width: 1120px) {
+		display: none;
+	}
+	h1 {
+		font-size: 4.5vw;
+		margin: 0px 0;
+		line-height: 1.8;
+	}
+	p {
+		font-size: 2.8vw;
+		margin: 0px 0;
+		color: #fafafa;
+		text-indent: 20px;
+
+	}
+}
+.panel {
+	z-index: 10;
+	position: relative;
+	flex: 1 1 55%;
+	padding: 10vh 25px;
+	margin-right: 30px;
+	height: 70vh;
+	background: #fafafa;
+	border-style: solid;
+	border-color: #333;
+	border-width: 13px 15px;
+	overflow: hidden;
+	@media screen and (max-width: 1120px) {
+		height: 80vh;
+		padding: 5vh 0;
+		margin-right: 0;
+		overflow: visible;
+		border-width: 1.5vh 1.5vh;
+	}
+
+	.login-form {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 7vh;
+		bottom: 10vh;
+		flex: 1 1 100%;
+		justify-content: center;
+		&.sign-in {
+			justify-content: flex-start;
+		}
+		@media screen and (max-width: 1120px) {
+			overflow: auto;
+		}
+	}
+	.button-wraper {
+		position: absolute;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: center;
+		bottom: 4vh;
+		width: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		@media screen and (max-width: 1120px) {
+			position: fixed;
+			z-index: 20;
+			bottom: 5vh;
+		}
+		button {
+			position: relative;
+			font-family: 'Press Start 2P';
+			font-size: 13px;
+			border: 0 none;
+			outline: none;
+			background: transparent;
+			color: #333;
+			padding: 10px 50px;
+			margin-right: 20px;
+			border: 4px transparent solid;
+			@media screen and (max-width: 1120px) {
+				color: #333;
+				font-size: 10px;
+				padding: 2vh 5vh;
+			}
+			&.active {
+				background: $gr;
+				border: 4px #3bb449 solid;
+				color: #fafafa;
+				@media screen and (max-width: 1120px) {
+					background: $bk;
+					color: $wt;
+					border-color: $gr;
+				}
+				&.ready {
+					border: 4px #333 solid;
+					&::after {
+						display: block;
+					}
+				}
+			}
+			&:hover {
+				border: 4px #333 solid;
+				&::after {
+					display: block;
+				}
+			}
+			&::after {
+				display: none;
+				content: '';
+				position: absolute;
+				top: -67px;
+				left: 50%;
+				margin-left: -10px;
+				width: 21px;
+				height: 60px;
+				background: url(/images/logo_ver.png) no-repeat center;
+				background-size: 100% auto; 
+				animation: FLOATING .8s ease-out infinite;
+			}
+		}
+	}
+}

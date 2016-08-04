@@ -1,0 +1,27 @@
+{
+  "name": "watapp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "art-template": "^3.0.3",
+    "autoprefixer": "^6.3.6",
+    "body-parser": "^1.15.2",
+    "browser-sync": "^2.14.0",
+    "debug": "^2.2.0",
+    "express": "~4.13.4",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-lazyimagecss": "^2.0.0",
+    "gulp-nodemon": "^2.1.0",
+    "gulp-postcss": "^6.1.1",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "morgan": "~1.7.0",
+    "serve-favicon": "^2.3.0"
+  },
+  "devDependencies": {
+    "colors": "^1.1.2"
+  }
+}
