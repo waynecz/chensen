@@ -13,15 +13,23 @@
     "debug": "^2.2.0",
     "express": "~4.13.4",
     "gulp": "gulpjs/gulp#4.0",
-    "gulp-lazyimagecss": "^2.0.0",
+    "gulp-if": "^2.0.1",
+    "gulp-imagemin": "^3.0.2",
     "gulp-nodemon": "^2.1.0",
     "gulp-postcss": "^6.1.1",
     "gulp-sass": "^2.3.1",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-tmtsprite": "^0.0.22",
+    "imagemin-jpegtran": "^5.0.2",
+    "markdown-it": "^7.0.0",
     "morgan": "~1.7.0",
-    "serve-favicon": "^2.3.0"
+    "serve-favicon": "^2.3.0",
+    "sprity": "^1.0.8",
+    "sprity-lwip": "^1.0.6"
   },
   "devDependencies": {
-    "colors": "^1.1.2"
+    "colors": "^1.1.2",
+    "gulp-imagemin": "^3.0.2",
+    "gulp-sprite-generator": "^0.2.3"
   }
 }

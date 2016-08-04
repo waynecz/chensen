@@ -1,5 +1,6 @@
 const template = require('art-template');
 const path = require('path');
+const fs = require('fs');
 const layoutPath = path.resolve(process.cwd(), 'views/layout/layout');
 
 module.exports = function (req, res, next) {
@@ -9,24 +10,14 @@ module.exports = function (req, res, next) {
     res.renderPage = function (screenPath, data) {
         var screenPath = path.join('views/screen', screenPath);
 
-        let isExist = function (screenPath) {
-            return new Promise((resolve, reject) => {
-                fs.exists(screenPath + '.html', (exists) => {
-                    if (!exists) reject("template '" + screenPath  + "' is not found");
-                    resolve(exists)
-                });
-            });
-        };
-
-        isExist(screenPath).then(res => {
-                data.ctx = template(screenPath, data);
+        fs.stat(screenPath + '.html', function (err) {
+            if (err) {
+                return res.send("找不到" + screenPath);
             }
-        ).catch(e => {
-            res.g
+            data.ctx = template(screenPath, data);
+
+            return res.render(layoutPath, data);
         });
-
-
-        return res.render(layoutPath, data)
     };
     next()
 };

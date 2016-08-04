@@ -6,13 +6,16 @@ var sass = require('gulp-sass');
 var autoprefixer = require('autoprefixer');
 var postcss = require('gulp-postcss');
 var maps = require('gulp-sourcemaps');
+var imagemin = require('gulp-imagemin');
+var sprite = require("gulp-tmtsprite");
+var gulpif = require('gulp-if');
 require('colors');
-var processors = [
-    autoprefixer({browsers: ["Android 4.1", "iOS 7.1", "Chrome > 31", "ff > 31", "ie >= 8"]})
-];
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+var processors = [
+    autoprefixer({browsers: ["Android 4.1", "iOS 7.1", "Chrome > 31", "ff > 31", "ie >= 8"]})
+];
 var APP = path.resolve(__dirname, 'app.js');
 var ROUTERS = path.resolve(__dirname, 'routes');
 var VIEW = path.resolve(__dirname, 'views/**');
@@ -35,7 +38,7 @@ gulp.task('bs-delay', (cb) => {
         setTimeout(function () {
             bs.reload();
             bs.notify("This message will only last a second", 1000);
-        }, 1500);
+        }, 1700);
         resolve()
     });
 });
@@ -48,7 +51,7 @@ gulp.task('css:dev', () => {
         .pipe(sass({outputStyle: 'compact'}).on('error', sass.logError))
         .pipe(postcss(processors))
         .pipe(maps.write())
-        .pipe(gulp.dest(path.resolve(__dirname, 'public/stylesheets/')));
+        .pipe(gulp.dest(path.resolve(__dirname, 'public/css/')));
 });
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -85,8 +88,24 @@ gulp.task('nodemon', (cb) => {
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+gulp.task('img', () => {
+        gulp.src('src/img/*.*')
+            .pipe(imagemin())
+            .pipe(gulp.dest(path.join(__dirname, '/public/imgs')))
+    }
+);
+
+gulp.task('sp', () => {
+    gulp.src('./public/css/*.css')
+        .pipe(sprite({slicePath: '../slice', }))
+        .pipe(gulpif('*.png', gulp.dest('./public/sprite/'), gulp.dest('./public/css/')));
+    return Promise.resolve()
+});
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 gulp.task('dev',
-    gulp.series('css:dev', 'nodemon', 'bs',
+    gulp.series('css:dev', 'nodemon', 'bs', 'sp',
         gulp.parallel('watch:node', 'watch:css')
     )
 );

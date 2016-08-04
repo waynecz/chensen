@@ -1,9 +1,13 @@
-@import "normailize";
-@import "chips";
-@import "animations";
-@import "flex-layout";
-@import "modal";
-@import "popmsg";
-@import "loader";
-@import "common";
-@import "login";
+//@import "normailize";
+//@import "chips";
+//@import "animations";
+//@import "layout";
+//@import "loader";
+//@import "common";
+
+body {
+  background-image: url('../slice/icon_global_sms.png');
+}
+html {
+  background-image: url('../slice/icon_gprs.png');
+}
