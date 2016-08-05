@@ -2,6 +2,12 @@
 
 > 舒服的到没朋友的express脚手架 
 
+```
+cnpm install
+npm start
+```
+
+
 + 已有自动化流程🙃
   + sass编译、autoprefixer、可选压缩什么什么什么的
   + 图片压缩
@@ -21,4 +27,6 @@
 
   
 感谢[TMT](https://github.com/weixin/tmt-workflow)
+
+哦，差点忘了说，现在这东西还不完善哦，而且基本没注释
 
