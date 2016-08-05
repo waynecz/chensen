@@ -10,6 +10,7 @@
     "autoprefixer": "^6.3.6",
     "body-parser": "^1.15.2",
     "browser-sync": "^2.14.0",
+    "cookie-parser": "latest",
     "debug": "^2.2.0",
     "express": "~4.13.4",
     "gulp": "gulpjs/gulp#4.0",
