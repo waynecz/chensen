@@ -4,14 +4,14 @@
 
 ```
 cnpm install
-npm start
+gulp dev // 请全局gulp@4版本
 ```
 
 
 + 已有自动化流程🙃
-  + sass编译、autoprefixer、可选压缩什么什么什么的
-  + 图片压缩
-  + 雪碧图生成
+  + sass编译、autoprefixer、可选压缩什么什么什么的 
+  + 图片压缩 `gulp img`
+  + 雪碧图生成 `gulp sp`
 + 开发模式下😝
   + 监听服务文件改动,监听静态资源改动
   + 你再也不用摁刷新键啦！！！！
