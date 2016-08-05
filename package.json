@@ -21,15 +21,16 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-tmtsprite": "^0.0.22",
     "imagemin-jpegtran": "^5.0.2",
+    "jpegtran-bin": "^3.1.0",
+    "lwip": "0.0.9",
     "markdown-it": "^7.0.0",
     "morgan": "~1.7.0",
-    "serve-favicon": "^2.3.0",
-    "sprity": "^1.0.8",
-    "sprity-lwip": "^1.0.6"
+    "node-lwip": "^0.2.1",
+    "node-sass": "^3.8.0",
+    "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
     "colors": "^1.1.2",
     "gulp-imagemin": "^3.0.2",
-    "gulp-sprite-generator": "^0.2.3"
   }
 }

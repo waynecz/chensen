@@ -89,9 +89,9 @@ gulp.task('nodemon', (cb) => {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 gulp.task('img', () => {
-        gulp.src('src/img/*.*')
-            .pipe(imagemin())
-            .pipe(gulp.dest(path.join(__dirname, '/public/imgs')))
+        gulp.src('./src/img/*.*')
+            .pipe(imagemin([imagemin.jpegtran()]))
+            .pipe(gulp.dest(path.join(__dirname, './public/imgs')))
     }
 );
 
