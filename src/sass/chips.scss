@@ -11,3 +11,12 @@ $bk-2: #555;
 .shadow {
 	display: none!important;
 }
+.cf {
+	*zoom: 1;
+	&:after {
+		content: '\200B';
+		display: block;
+		height: 0;
+		clear: both;
+	}
+}

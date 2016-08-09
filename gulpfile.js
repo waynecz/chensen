@@ -54,6 +54,13 @@ gulp.task('css:dev', () => {
         .pipe(gulp.dest(path.resolve(__dirname, 'public/css/')));
 });
 
+gulp.task('css:pro', () => {
+    return gulp.src(path.resolve(__dirname, 'src/sass/style-output.scss'))
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(postcss(processors))
+        .pipe(gulp.dest(path.resolve(__dirname, 'public/css/')));
+});
+
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 gulp.task('watch:node', function () {
@@ -88,7 +95,7 @@ gulp.task('nodemon', (cb) => {
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-gulp.task('img', () => {
+gulp.task('imgmin', () => {
         gulp.src('./src/img/*.*')
             .pipe(imagemin([imagemin.jpegtran()]))
             .pipe(gulp.dest(path.join(__dirname, './public/imgs')))
@@ -105,7 +112,11 @@ gulp.task('sp', () => {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 gulp.task('dev',
-    gulp.series('css:dev', 'nodemon', 'bs', 'sp',
+    gulp.series('css:dev', 'nodemon', 'bs',
         gulp.parallel('watch:node', 'watch:css')
     )
+);
+
+gulp.task('prod',
+    gulp.series('css:pro',  'sp', 'imgmin')
 );
