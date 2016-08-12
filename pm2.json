@@ -1,8 +1,7 @@
 {
   "apps": [{
-    "name": "koa2-startkit",
+    "name": "choice offical",
     "script": "bin/www",
-    // "cwd": "/absolute/path/to/project",
     "exec_mode": "cluster",
     "instances": 0,
     "max_memory_restart": "1G",

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var app = require('../app.js');
 
 router.get('/', function (req, res, next) {
     var title = '首页';
@@ -43,5 +44,6 @@ router.get('/message', function (req, res, next) {
     });
 });
 
+router.use('/news', require('./news'));
 
 module.exports = router;

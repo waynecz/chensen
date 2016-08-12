@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var template = require('art-template');
 var favicon = require('serve-favicon');
-var renderPage = require('./middleware/renderPage')
+var renderPage = require('./middleware/renderPage');
 
 // 路由入口
 var routes = require('./routes/index');
@@ -59,7 +59,7 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function (err, req, res, next) {
-    res.status(err.status || 500)
+    res.status(err.status || 500);
     res.renderPage('error', {
         message: err.message,
         error: {}
@@ -67,3 +67,4 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+

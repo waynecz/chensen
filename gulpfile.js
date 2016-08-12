@@ -19,6 +19,7 @@ var processors = [
 var APP = path.resolve(__dirname, 'app.js');
 var ROUTERS = path.resolve(__dirname, 'routes');
 var VIEW = path.resolve(__dirname, 'views/**');
+var MDS = path.resolve(__dirname, 'data/news/*.md');
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -104,19 +105,43 @@ gulp.task('imgmin', () => {
 
 gulp.task('sp', () => {
     gulp.src('./public/css/*.css')
-        .pipe(sprite({slicePath: '../slice', }))
+        .pipe(sprite({slicePath: '../slice',}))
         .pipe(gulpif('*.png', gulp.dest('./public/sprite/'), gulp.dest('./public/css/')));
     return Promise.resolve()
 });
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+gulp.task('md', () => {
+    var {md2html} = require('./md2ht');
+    return md2html()
+});
+
+gulp.task('watch:md', () => {
+    var {singleMd2html} = require('./md2ht');
+    gulp.watch(MDS)
+        .on('change', function (file) {
+            console.log((file + ' has been changed').cyan);
+            singleMd2html(file);
+        })
+        .on('add', function (file) {
+            console.log((file + ' has been added').magenta);
+            singleMd2html(file);
+        })
+        .on('unlink', function (file) {
+            console.log((file + ' is deleted').blue);
+            singleMd2html(file, true);
+        });
+});
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 gulp.task('dev',
-    gulp.series('css:dev', 'nodemon', 'bs',
-        gulp.parallel('watch:node', 'watch:css')
+    gulp.series('css:dev', 'nodemon', 'bs', 'md',
+        gulp.parallel('watch:node', 'watch:css', 'watch:md')
     )
 );
 
 gulp.task('prod',
-    gulp.series('css:pro',  'sp', 'imgmin')
+    gulp.series('css:pro', 'sp', 'imgmin')
 );
