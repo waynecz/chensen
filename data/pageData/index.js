@@ -6,7 +6,7 @@ var data = {
         {href: '/', img: 'imgs/3.jpg', alt: ''},
         {href: '/', img: 'imgs/4.jpg', alt: ''}
     ],
-    caselLists: [
+    caseLists: [
         {href: '/', name: '1', alt: ''},
         {href: '/', name: '2', alt: ''},
         {href: '/', name: '3', alt: ''},

@@ -1,5 +1,5 @@
 module.exports = {
-    footList: [
+    footLists: [
         {
             title: '解决方案',
             subList: [
