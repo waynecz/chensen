@@ -3,10 +3,9 @@ var router = express.Router();
 var app = require('../app.js');
 
 router.get('/', function (req, res, next) {
-    var title = '首页';
-    res.renderPage('index', {
-        title: title
-    });
+    var pageData = require('../data/pageData/index');
+    pageData.title =  '首页';
+    res.renderPage('index', pageData);
 });
 
 router.get('/about', function (req, res, next) {

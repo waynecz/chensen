@@ -1,22 +1,83 @@
-$gr: #3ab54a;
-$wt: #fafafa;
-$rd: #FF3f3f;
-$wr: rgb(245,177,75);
-$dk: #222;
-$bk: #333;
-$bk-1: #444;
-$bk-2: #555;
+$wt: #fff;
+$lb: #00519b;
+$lr: #ce0000;
 
+.cf {
+  *zoom: 1;
+  &:after {
+    content: '\200B';
+    display: block;
+    height: 0;
+    clear: both;
+  }
+}
+
+//hide
 
 .shadow {
-	display: none!important;
+  display: none !important;
 }
-.cf {
-	*zoom: 1;
-	&:after {
-		content: '\200B';
-		display: block;
-		height: 0;
-		clear: both;
-	}
+
+.pc-hide {
+  @include res('p') {
+    display: none !important;
+  }
+}
+
+.mb-hide {
+  @include res('m') {
+    display: none !important;
+  }
+}
+
+// inline unit align middle
+.inb-tac {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+//display
+.d-ib {
+  display: inline-block;
+}
+
+.d-i {
+  display: inline !important;
+}
+
+.d-b {
+  display: block;
+}
+
+// vertical-align
+.v-m {
+  vertical-align: middle;
+}
+
+// text-align
+.ta-c {
+  text-align: center;
+}
+
+// margin
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.ml-n7 {
+  margin-left: -7px;
+}
+
+// position
+.p-r {
+  position: relative;
+}
+
+// float
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
 }

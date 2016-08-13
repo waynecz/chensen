@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var template = require('art-template');
 var favicon = require('serve-favicon');
+var compression = require('compression');
 var renderPage = require('./middleware/renderPage');
 
 // 路由入口
@@ -18,6 +19,10 @@ template.config('cache', false);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.html', template.__express);
 app.set('view engine', 'html');
+
+// 启用gzip
+app.use(compression());
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
@@ -33,7 +38,6 @@ app.use(bodyParser.urlencoded({
 
 // cookieParser中间件用于获取web浏览器发送的cookie中的内容
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // 全局应用index路由配置，具体路由配置进index设置
 app.use('/', routes);

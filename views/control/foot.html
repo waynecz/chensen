@@ -1,3 +1,15 @@
-<footer class="footer">
-
+<!-- foot-->
+<footer class="foot-box">
+    <ul class="c-row foot-list cf">
+        {{each footList}}
+        <li class="foot-item fl">
+            <h3 class="foot-item-title">{{$value.title}}</h3>
+            <ul class="sub-list">
+                {{each $value.subList}}
+                <li class="sub-content"><a href="{{$value.href}}" class="a">{{$value.content}}</a></li>
+                {{/each}}
+            </ul>
+        </li>
+        {{/each}}
+    </ul>
 </footer>

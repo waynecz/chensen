@@ -1,3 +1,61 @@
-<div class="editor">
+<!-- banner-->
+<div class="index-banner-box">
+    <div id="owl" class="owl-carousel owl-theme">
+        {{each carouselLists}}
+        <div class="carousel-item c-row">
+            <a class="ca" href="{{$value.href}}">
+                <img class="carousel-img" src="{{$value.img}}" alt="{{$value.alt}}">
+            </a>
+        </div>
+        {{/each}}
+    </div>
+</div>
+<!-- case-->
+<div class="index-case-box">
+    <h3 class="case-title ta-c">解决方案</h3>
+    <ul class="c-row case-list cf">
+        {{each caseLists}}
+        <li class="case-item fl">
+            <div class="case-card">
+                <h5 class="card-name">{{$value.name}}</h5>
+                <div class="card-content">
+
+                </div>
+                <a class="card-button" href="{{$value.href}}">查看详情</a>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+<!-- news-->
+<div class="index-trend-box">
+    <h3 class="trend-title ta-c">新闻动态</h3>
+    <ul class="c-row trend-list cf">
+        <li class="trend-item fl">
+            <h3 class="trend-name">辰森动态</h3>
+        </li>
+        <li class="trend-item fl">
+            <h3 class="trend-name">行业资讯</h3>
+        </li>
+        <li class="trend-item fl">
+            <h3 class="trend-name">辰森报刊</h3>
+        </li>
+    </ul>
+</div>
+<!-- partners-->
+<div class="index-partner-box">
+    <h3 class="partner-title ta-c">合作方</h3>
+    <ul class="c-row partner-list cf">
+        {{each partnerLists}}
+        <li class="partner-item fl">
+            <a href="{{$value.href}}" class="partner-link">
+                <i class="p"></i>
+            </a>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+<!-- leave a message-->
+<div class="index-message-box">
 
 </div>

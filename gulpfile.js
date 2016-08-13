@@ -19,6 +19,7 @@ var processors = [
 var APP = path.resolve(__dirname, 'app.js');
 var ROUTERS = path.resolve(__dirname, 'routes');
 var VIEW = path.resolve(__dirname, 'views/**');
+var PAGEDATA = path.resolve(__dirname, 'data/pageData/*.js');
 var MDS = path.resolve(__dirname, 'data/news/*.md');
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -27,8 +28,7 @@ gulp.task('bs', () => {
     bs.init(null, {
         proxy: "http://localhost:3000",
         port: 2333,
-        logLevel: "silent",
-        file: path.resolve(__dirname, 'public/**/*.*')
+        files: './public/**/*.*'
     });
     return Promise.resolve()
 });
@@ -65,13 +65,13 @@ gulp.task('css:pro', () => {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 gulp.task('watch:node', function () {
-    gulp.watch(['./routes/**/*.js', './app.js', './bin/www', './views/**/*.html'],
+    gulp.watch(['./routes/**/*.js', './app.js', './bin/www', './views/**/*.html', PAGEDATA],
         gulp.parallel('bs-delay')
     );
 });
 
 gulp.task('watch:css', () => {
-    gulp.watch(path.resolve(__dirname, 'src/sass/*.scss'),
+    gulp.watch(path.resolve(__dirname, 'src/sass/**/*.scss'),
         gulp.parallel('css:dev')
     );
 });
@@ -85,7 +85,7 @@ gulp.task('nodemon', (cb) => {
         verbose: false,
         ext: 'js html',
         env: {'NODE_ENV': 'develop'},
-        watch: [APP, ROUTERS, VIEW]
+        watch: [APP, ROUTERS, VIEW, PAGEDATA]
     }).on('start', () => {
         console.log('启动完成!'.green);
     }).on('restart', () => {

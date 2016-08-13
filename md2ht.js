@@ -29,11 +29,9 @@ var md2html = function () {
 var singleMd2html = function (file, isDel) {
     var fileName = file.substring(file.lastIndexOf('/') + 1);
     var rstFileName = fileName.split('.')[0] + '.html';
-    var rstFilePath = newsDistPath + '/' + rstFileName
+    var rstFilePath = newsDistPath + '/' + rstFileName;
 
-    if (isDel) {
-        return delFilePrms(rstFilePath)
-    }
+    if (isDel) return delFilePrms(rstFilePath);
 
     fs.stat(file, (err) => {
         if (err) throw err;
