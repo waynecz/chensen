@@ -16,7 +16,7 @@
     <p class="small-title">
         solution scenario
     </p>
-    <ul class="solution-list cf">
+    <ul class="solution-list cf" id="solutionList">
         {{each solutionLists}}
         <li class="solution-item inb-tac {{if $index == 3}}active{{/if}}" data-aos="fade-up" data-aos-duration="600" data-aos-once="true">
             <div class="solution-card">
@@ -37,17 +37,27 @@
     <p class="small-title">
         news
     </p>
-    <ul class="c-row trend-list cf">
-        <li class="trend-item fl">
-            <h3 class="trend-name">辰森动态</h3>
-        </li>
-        <li class="trend-item fl">
-            <h3 class="trend-name">行业资讯</h3>
-        </li>
-        <li class="trend-item fl">
-            <h3 class="trend-name">辰森报刊</h3>
-        </li>
-    </ul>
+    <div class="c-row">
+        <ul class="trend-list cf">
+            {{each newsLists}}
+            <li class="trend-item fl">
+                <div class="news-img news-img-{{$index + 1}}"></div>
+                <div class="news-box">
+                    <div class="news-time d-ib v-t">
+                        <p class="time-y">{{$value.date}}</p>
+                        <p class="time-d">{{$value.year}}</p>
+                    </div>
+                    <div class="news-abstract d-ib v-t">
+                        <h4 class="news-title">{{$value.title}}</h4>
+                        <p class="news-content">{{$value.content}}</p>
+                        <span class="etc">>></span>
+                    </div>
+                </div>
+
+            </li>
+            {{/each}}
+        </ul>
+    </div>
 </div>
 <!-- partners-->
 <div class="index-partner-box">

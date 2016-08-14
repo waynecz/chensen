@@ -1,5 +1,6 @@
 $w: #fff;
 $t: #333;
+$a: #aaa;
 $or: #e19b40;
 $lb: #00519b;
 $lr: #ce0000;
@@ -54,6 +55,9 @@ $lr: #ce0000;
 // vertical-align
 .v-m {
   vertical-align: middle;
+}
+.v-t {
+  vertical-align: top;
 }
 
 // text-align

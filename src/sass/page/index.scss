@@ -93,7 +93,59 @@
   background: #f5f5f5;
   padding: 60px 0 90px;
   text-align: center;
+  .trend-title {
+    font-size: 30px;
+  }
+  .trend-list{
+    padding: 100px 0;
+  }
+  .trend-item {
+    width: 350px;
+    font-size: 0;
+    &:not(:last-child) {
+      margin-right: 50px;
+    }
 
+    .news-box {
+      padding-top: 40px;
+      color: $t;
+    }
+    .news-img {
+      height: 120px;
+      background-size: 100%;
+    }
+    @for $i from 1 through 3 {
+      .news-img-#{$i} {
+        background-image: url(../slice/news_0#{$i}.jpg);
+      }
+    }
+    .news-time {
+      width: 90px;
+      font-size: 12px;
+      text-align: left;
+      .time-y {
+        font-size: 17px;
+        padding-bottom: 3px;
+      }
+    }
+    .news-abstract {
+      text-align: left;
+      width: 260px;
+      font-size: 12px;
+      .news-title {
+        font-size: 17px;
+        padding-bottom: 8px;
+      }
+      .news-content {
+        color: $a;
+        padding-bottom: 5px;
+        line-height: 1.8;
+      }
+      .etc {
+        color: $a;
+      }
+    }
+  }
 }
 
 .small-title {
