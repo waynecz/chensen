@@ -2,7 +2,7 @@
 <div class="index-banner-box">
     <div id="owl" class="owl-carousel owl-theme">
         {{each carouselLists}}
-        <div class="carousel-item c-row">
+        <div class="carousel-item">
             <a class="ca" href="{{$value.href}}">
                 <img class="carousel-img" src="{{$value.img}}" alt="{{$value.alt}}">
             </a>
@@ -11,13 +11,17 @@
     </div>
 </div>
 <!-- case-->
-<div class="index-case-box">
-    <h3 class="case-title ta-c">解决方案</h3>
-    <ul class="c-row case-list cf">
-        {{each caseLists}}
-        <li class="case-item fl">
-            <div class="case-card">
-                <h5 class="card-name">{{$value.name}}</h5>
+<div class="index-solution-box">
+    <h3 class="solution-title ta-c">解决方案</h3>
+    <p class="small-title">
+        solution scenario
+    </p>
+    <ul class="solution-list cf">
+        {{each solutionLists}}
+        <li class="solution-item inb-tac {{if $index == 3}}active{{/if}}" data-aos="fade-up" data-aos-duration="600" data-aos-once="true">
+            <div class="solution-card">
+                <div class="icon icon-{{$index + 1}}"></div>
+                <h5 class="card-name">{{#$value.name}}</h5>
                 <div class="card-content">
 
                 </div>
@@ -30,6 +34,9 @@
 <!-- news-->
 <div class="index-trend-box">
     <h3 class="trend-title ta-c">新闻动态</h3>
+    <p class="small-title">
+        news
+    </p>
     <ul class="c-row trend-list cf">
         <li class="trend-item fl">
             <h3 class="trend-name">辰森动态</h3>

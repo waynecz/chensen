@@ -8,13 +8,13 @@
 <script type="text/javascript" charset="UTF-8" src="js/pace.min.js"></script>
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 {{if title == '首页'}}
-    <script type="text/javascript" src="js/carousel/owl.carousel.min.js"></script>
+<script type="text/javascript" src="js/carousel/owl.carousel.min.js"></script>
+<script type="text/javascript" src="js/aos.js"></script>
 {{/if}}
 <script>
+    AOS.init();
     $("#owl").owlCarousel({
-        navigation : true,
         slideSpeed : 300,
-        paginationSpeed : 400,
         singleItem:true
     });
 </script>
