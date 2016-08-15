@@ -18,13 +18,10 @@
     </p>
     <ul class="solution-list cf" id="solutionList">
         {{each solutionLists}}
-        <li class="solution-item inb-tac {{if $index == 3}}active{{/if}}" data-aos="fade-up" data-aos-duration="600" data-aos-once="true">
+        <li class="solution-item inb-tac {{if $index == 3}}active{{/if}}">
             <div class="solution-card">
                 <div class="icon icon-{{$index + 1}}"></div>
                 <h5 class="card-name">{{#$value.name}}</h5>
-                <div class="card-content">
-
-                </div>
                 <a class="card-button" href="{{$value.href}}">查看详情</a>
             </div>
         </li>
@@ -40,7 +37,7 @@
     <div class="c-row">
         <ul class="trend-list cf">
             {{each newsLists}}
-            <li class="trend-item fl">
+            <li class="trend-item fl" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                 <div class="news-img news-img-{{$index + 1}}"></div>
                 <div class="news-box">
                     <div class="news-time d-ib v-t">
@@ -48,7 +45,7 @@
                         <p class="time-d">{{$value.year}}</p>
                     </div>
                     <div class="news-abstract d-ib v-t">
-                        <h4 class="news-title">{{$value.title}}</h4>
+                        <h4 ><a class="news-title" href="">{{$value.title}}</a></h4>
                         <p class="news-content">{{$value.content}}</p>
                         <span class="etc">>></span>
                     </div>
@@ -61,18 +58,23 @@
 </div>
 <!-- partners-->
 <div class="index-partner-box">
-    <h3 class="partner-title ta-c">合作方</h3>
+    <h3 class="partner-title ta-c">优秀合作伙伴</h3>
+    <p class="small-title">
+        excellent partners
+    </p>
     <ul class="c-row partner-list cf">
         {{each partnerLists}}
         <li class="partner-item fl">
             <a href="{{$value.href}}" class="partner-link">
-                <i class="p"></i>
+                <i class="p p-{{$index + 1}}"></i>
             </a>
         </li>
         {{/each}}
     </ul>
 </div>
 <!-- leave a message-->
-<div class="index-message-box">
-
+<div id="msgBox" class="index-message-box">
+    <h1 class="bg-chensen" id="M">Choicesoft</h1>
+    <h3 class="message-title">辰森邀请您亲身体验信息智能化</h3>
+    <a href="/message" class="message-button ts-15">留言咨询</a>
 </div>

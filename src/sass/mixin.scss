@@ -1,6 +1,6 @@
 $breakpoints: (
-    'm'  : ( max-width: 800px ),
-    'p' : ( min-width: 800px ),
+    'm'  : ( max-width: 830px ),
+    'p' : ( min-width: 831px ),
 );
 
 @mixin res($name) {

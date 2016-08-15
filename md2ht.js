@@ -21,8 +21,6 @@ var md2html = function () {
             var rstFileName = data.fileName.split('.')[0] + '.html';
             return writeFilePrms(newsDistPath + '/' + rstFileName, buffer)
         }))
-    }).then(data => {
-        console.log(data)
     })
 };
 

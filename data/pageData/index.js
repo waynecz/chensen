@@ -1,5 +1,4 @@
-var _ = require('lodash');
-var data = {
+module.exports = {
     carouselLists: [
         {href: '/', img: 'imgs/banner-1.jpg', alt: ''},
     ],
@@ -19,6 +18,7 @@ var data = {
         {href: '/', name: '4', alt: ''},
         {href: '/', name: '5', alt: ''},
         {href: '/', name: '6', alt: ''},
+        {href: '/', name: '7', alt: ''},
     ],
     newsLists: [
         {year: '2016', date: '07-22', title: '2016，辰森世纪全力加速中！', content: '2016年6月9日至10日，辰森世纪2016年中会议在上海召开'},
@@ -27,4 +27,3 @@ var data = {
     ]
 };
 
- module.exports = _.assign(data, require('./head_foot'));

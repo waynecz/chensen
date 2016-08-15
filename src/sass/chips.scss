@@ -1,9 +1,14 @@
 $w: #fff;
 $t: #333;
 $a: #aaa;
-$or: #e19b40;
+$or: #4488ee;
 $lb: #00519b;
 $lr: #ce0000;
+
+$bar-width: r(60);
+$bar-height: r(7);
+$bar-spacing: r(20);
+
 
 .cf {
   *zoom: 1;
@@ -86,4 +91,8 @@ $lr: #ce0000;
 
 .fr {
   float: right;
+}
+// transition
+.ts-15 {
+  transition: .15s ease-out;
 }

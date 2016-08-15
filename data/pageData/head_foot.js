@@ -20,14 +20,6 @@ module.exports = {
                 {href: '/', content: '辰森荣誉'},
                 {href: '/', content: '辰森优势'}
             ]
-        },
-        {
-            title: '关于我们',
-            subList: [
-                {href: '/', content: '公司背景'},
-                {href: '/', content: '辰森荣誉'},
-                {href: '/', content: '辰森优势'}
-            ]
-        },
+        }
     ]
 };

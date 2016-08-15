@@ -28,7 +28,7 @@ gulp.task('bs', () => {
     bs.init(null, {
         proxy: "http://localhost:3000",
         port: 2333,
-        files: './public/css/style-output.css'
+        files: ['./public/css/style-output.css', './public/js/*.js']
     });
     return Promise.resolve()
 });

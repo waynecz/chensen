@@ -1,6 +1,7 @@
 const template = require('art-template');
 const path = require('path');
 const fs = require('fs');
+var _ = require('lodash');
 const layoutPath = path.resolve(process.cwd(), 'views/layout/layout');
 
 module.exports = function (req, res, next) {
@@ -15,7 +16,7 @@ module.exports = function (req, res, next) {
                 return res.send("找不到" + screenPath);
             }
             data.ctx = template(screenPath, data);
-
+            _.assign(data, require('../data/pageData/head_foot'));
             return res.render(layoutPath, data);
         });
     };
