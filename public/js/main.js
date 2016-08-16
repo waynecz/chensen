@@ -2,9 +2,7 @@ $(function () {
 
     // 事件及常量 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     var timer = null;
-    var timerB = null;
     var C = document.getElementById('msgBox');
-    var COT = C.offsetTop;
     var clientWidth = document.documentElement.clientWidth;
     var actions = {
         generateSolutionPosition: function () {
@@ -18,12 +16,8 @@ $(function () {
                     .addClass('middle');
             }
         },
-        moveChoice: function () {
-            var sT = document.body.scrollTop;
-            var baz = 0;
-            if (clientWidth > 1440) baz = 200;
-            if (sT < (COT + baz) || sT > (COT + 250)) return;
-            var mT = -60 + (sT - COT ) * 0.3;
+        moveChoice: function (sT, WH) {
+            var mT = -80 + (sT + WH - $(C).offset().top) * 0.17;
             $(window.M).css('top', mT + 'px')
         }
     };
@@ -41,9 +35,12 @@ $(function () {
     }, false);
 
     window.addEventListener('scroll', function () {
-        actions.moveChoice()
+        var sT = $(this).scrollTop();
+        var WH = $(this).height();
+        if (( $(C).offset().top - $(this).scrollTop() ) > $(this).height()) return;
+        actions.moveChoice(sT, WH)
     }, false);
-    actions.generateSolutionPosition()
+    actions.generateSolutionPosition();
 
 
     $('.hamburger-menu').on('click', function () {

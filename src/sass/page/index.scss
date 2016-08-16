@@ -22,11 +22,11 @@
   text-align: center;
   width: 1200px;
   overflow: hidden;
+  margin: 0 auto;
   @include res('m') {
     width: 20rem;
   }
   .solution-title {
-    font-size: 30px;
     color: $t;
     font-weight: 200;
   }
@@ -114,7 +114,6 @@
   padding: 60px 0 90px;
   text-align: center;
   .trend-title {
-    font-size: 30px;
   }
   .trend-list {
     padding: 100px 0;
@@ -146,12 +145,18 @@
       padding-top: 40px;
       color: $t;
       @include res('m') {
-        padding-top: r(40);
+        padding-top: r(30);
       }
     }
     .news-img {
       height: 120px;
       background-size: 100%;
+      @include res('m') {
+        height: r(173);
+        background-size: 100% auto;
+        background-position: center bottom;
+        margin-bottom: r(20);
+      }
     }
     @for $i from 1 through 3 {
       .news-img-#{$i} {
@@ -159,7 +164,7 @@
       }
     }
     @include res('m') {
-      .time-d, .news-abstract .news-content , .news-abstract .etc{
+      .time-d, .news-abstract .news-content, .news-abstract .etc {
         display: none;
       }
     }
@@ -171,15 +176,34 @@
         font-size: 17px;
         padding-bottom: 3px;
       }
+      @include res('m') {
+        width: auto;
+        color: #888;
+        .time-y {
+          font-size: r(32);
+          padding-bottom: 0;
+          &:before {
+            content: '[';
+          }
+          &:after {
+            content: ']';
+          }
+        }
+      }
     }
     .news-abstract {
       text-align: left;
       width: 260px;
       font-size: 12px;
       .news-title {
+        display: block;
         font-size: 17px;
+        max-width: 100%;
         padding-bottom: 8px;
         color: $t;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
       .news-content {
         color: $a;
@@ -189,6 +213,17 @@
       .etc {
         color: $a;
       }
+      @include res('m') {
+        width: r(520);
+        .news-title {
+          font-size: r(32);
+          padding-bottom: 0;
+          padding-left: r(14);
+          font-weight: normal;
+          color: #888;
+          max-width: r(490);
+        }
+      }
     }
   }
 }
@@ -196,14 +231,17 @@
 .index-partner-box {
   padding: 60px 0 90px;
   text-align: center;
-  .partner-title {
-    font-size: 30px;
-  }
   .partner-list {
     padding: 100px 0 60px;
+    @include res('m') {
+      width: r(700);
+      padding: 0 0;
+      margin: 0 auto;
+    }
   }
   .partner-item {
     width: 200px;
+
     .partner-link {
       display: block;
     }
@@ -215,6 +253,13 @@
     @for $i from 1 through 12 {
       .p-#{$i} {
         background-image: url(../slice/logo1.jpg);
+      }
+    }
+    @include res('m') {
+      width: r(175);
+      .p {
+        height: r(131);
+        background-size: r(175) r(131);
       }
     }
   }
@@ -264,6 +309,22 @@
       color: #55a9ee;
     }
   }
+  @include res('m') {
+    height: r(240);
+    padding-top: r(50);
+    .bg-chensen {
+      font-size: r(150);
+      top: r(125);
+    }
+    .message-title {
+      font-size: r(45);
+      padding-bottom: r(28);
+    }
+    .message-button {
+      font-size: r(30);
+      padding: r(12) r(62);
+    }
+  }
 }
 
 .small-title {
@@ -280,9 +341,12 @@
 
 .index-solution-box, .index-trend-box, .index-partner-box {
   @include res('m') {
-    padding: r(40) 0;
+    padding: r(40) 0 r(60);
   }
-  .solution-title, .trend-title, .partner-title {
+  .section-title {
+    @include res('p') {
+      font-size: 30px;
+    }
     @include res('m') {
       font-size: r(48);
     }
