@@ -18,7 +18,7 @@
     </p>
     <ul class="solution-list cf" id="solutionList">
         {{each solutionLists}}
-        <li class="solution-item inb-tac {{if $index == 3}}active{{/if}}">
+        <li class="solution-item inb-tac {{if $index == 3}}active{{/if}}" data-index="{{$index + 1}}">
             <div class="solution-card">
                 <div class="icon icon-{{$index + 1}}"></div>
                 <h5 class="card-name">{{#$value.name}}</h5>

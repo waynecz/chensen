@@ -1,355 +1,394 @@
 .index-banner-box {
-  .carousel-item {
-    .ca {
-      display: block;
+    .carousel-item {
+        .ca {
+            display: block;
+        }
+        .carousel-img {
+            min-width: 1200px;
+            width: 100%;
+            height: auto;
+            @include res('m') {
+                min-width: 20rem;
+                width: 40rem;
+                transform: translateX(-24%);
+            }
+        }
     }
-    .carousel-img {
-      min-width: 1200px;
-      width: 100%;
-      height: auto;
-      @include res('m') {
-        min-width: 20rem;
-        width: 40rem;
-        transform: translateX(-24%);
-      }
-    }
-  }
 }
 
 .index-solution-box {
-  background: #fff;
-  padding: 60px 0 90px;
-  text-align: center;
-  width: 1200px;
-  overflow: hidden;
-  margin: 0 auto;
-  @include res('m') {
-    width: 20rem;
-  }
-  .solution-title {
-    color: $t;
-    font-weight: 200;
-  }
-  .solution-list {
-    width: 1808px;
-    display: inline-block;
-    white-space: nowrap;
-    padding: 55px 0 40px;
-
-    .solution-item {
-      width: 220px;
-      margin: 0 12px;
-      outline: 0 !important;
-      &:first-child, &:last-child {
-        opacity: .6;
-      }
-      &.active {
-        width: 288px;
-        .solution-card {
-          cursor: default;
-          padding-top: 40px;
-          padding-bottom: 20px;
-        }
-        .card-name {
-          line-height: 2;
-        }
-      }
-    }
-  }
-  .solution-card {
-    width: 100%;
-    background: $w;
-    box-sizing: border-box;
-    padding: 30px 10px 15px;
-    border-radius: 4px;
+    background: #fff;
+    padding: 60px 0 90px;
     text-align: center;
-    box-shadow: 0 0 20px 4px rgba(68, 136, 238, .09);
-    cursor: pointer;
-    outline: 0 !important;
-    &:focus {
-      outline: 0 !important;
+    overflow: hidden;
+    @include res('m') {
+        width: 20rem;
     }
+    .solution-title {
+        color: $t;
+        font-weight: 200;
+    }
+    .solution-list {
+        width: 1776px;
+        display: inline-block;
+        white-space: nowrap;
+        padding: 55px 0 40px;
+        font-size: 0;
+        transform: translateX(0);
+        transition: transform .3s ease-out;
+        will-change:  transform;
 
-  }
-  .card-name {
-    color: $or;
-    font-size: 20px;
-    height: 90px;
-    font-weight: normal;
-    line-height: 1.5;
-    padding: 10px 0 20px;
-    margin: 0;
-  }
-  .icon {
-    display: inline-block;
-    width: 70px;
-    height: 70px;
-    background-size: 100%;
-  }
-  @for $i from 1 through 7 {
-    .icon-#{$i} {
-      background-image: url(../slice/icon#{$i}.png);
+        @include res('m') {
+            width: fit-content;
+            padding: r(20) 0 r(40);
+        }
+
+        .solution-item {
+            width: 220px;
+            margin: 0 12px;
+            outline: 0 !important;
+            transition: opacity .3s ease-out;
+            &:first-child, &:last-child {
+                opacity: .6;
+            }
+            &.active {
+                width: 288px;
+                opacity: 1;
+                .solution-card {
+                    cursor: default;
+                    padding-top: 40px;
+                    padding-bottom: 20px;
+                }
+                .card-name {
+                    line-height: 2;
+                }
+                @include res('m') {
+                    width: r(420);
+                    .card-name {
+                        line-height: 1.7;
+                    }
+                    .solution-card {
+                        padding-top: r(95);
+                        padding-bottom: r(50);
+                    }
+                }
+            }
+            @include res('m') {
+                width: r(360);
+                margin: 0 r(18);
+            }
+        }
     }
-  }
-  .card-button {
-    display: inline-block;
-    width: 120px;
-    text-align: center;
-    border: 1px solid $or;
-    border-radius: 3px;
-    color: $or;
-    transition: .15s ease-out;
-    font-weight: 100;
-    font-size: 12px;
-    line-height: 30px;
-    &:hover {
-      background: $or;
-      color: $w;
+    .solution-card {
+        width: 100%;
+        background: $w;
+        box-sizing: border-box;
+        padding: 30px 10px 15px;
+        border-radius: 4px;
+        text-align: center;
+        box-shadow: 0 0 20px 4px rgba(68, 136, 238, .09);
+        cursor: pointer;
+        outline: 0 !important;
+        &:focus {
+            outline: 0 !important;
+        }
+        @include res('m') {
+            padding: r(66) r(15) r(23);
+        }
+
     }
-  }
+    .card-name {
+        color: $or;
+        font-size: 20px;
+        height: 90px;
+        font-weight: normal;
+        line-height: 1.5;
+        padding: 10px 0 20px;
+        margin: 0;
+        @include res('m') {
+            font-size: r(36);
+            height: r(110);
+        }
+    }
+    .icon {
+        display: inline-block;
+        width: 70px;
+        height: 70px;
+        background-size: 100%;
+        @include res('m') {
+            height: r(100);
+            width: r(100);
+        }
+    }
+    @for $i from 1 through 7 {
+        .icon-#{$i} {
+            background-image: url(../slice/solution_0#{$i}.png);
+        }
+    }
+    .card-button {
+        display: inline-block;
+        width: 120px;
+        text-align: center;
+        border: 1px solid $or;
+        border-radius: 3px;
+        color: $or;
+        transition: .15s ease-out;
+        font-weight: 100;
+        font-size: 12px;
+        line-height: 30px;
+        &:hover {
+            background: $or;
+            color: $w;
+        }
+        @include res('m') {
+            width: r(176);
+            font-size: r(17);
+            line-height: r(37);
+        }
+    }
 }
 
 .index-trend-box {
-  background: #f5f5f5;
-  padding: 60px 0 90px;
-  text-align: center;
-  .trend-title {
-  }
-  .trend-list {
-    padding: 100px 0;
-    @include res('m') {
-      padding: 0;
+    background: #f5f5f5;
+    padding: 60px 0 90px;
+    text-align: center;
+    .trend-title {
     }
-  }
-  .trend-item {
-    width: 350px;
-    font-size: 0;
-    @include res('m') {
-      width: r(650);
-      margin: 0 auto;
-      float: none;
-      &:not(:first-child) {
-        .news-img {
-          display: none;
+    .trend-list {
+        padding: 100px 0;
+        @include res('m') {
+            padding: 0;
         }
-      }
     }
-    &:not(:last-child) {
-      margin-right: 50px;
-      @include res('m') {
-        margin: 0 auto;
-      }
-    }
+    .trend-item {
+        width: 350px;
+        font-size: 0;
+        @include res('m') {
+            width: r(650);
+            margin: 0 auto;
+            float: none;
+            &:not(:first-child) {
+                .news-img {
+                    display: none;
+                }
+            }
+        }
+        &:not(:last-child) {
+            margin-right: 50px;
+            @include res('m') {
+                margin: 0 auto;
+            }
+        }
 
-    .news-box {
-      padding-top: 40px;
-      color: $t;
-      @include res('m') {
-        padding-top: r(30);
-      }
-    }
-    .news-img {
-      height: 120px;
-      background-size: 100%;
-      @include res('m') {
-        height: r(173);
-        background-size: 100% auto;
-        background-position: center bottom;
-        margin-bottom: r(20);
-      }
-    }
-    @for $i from 1 through 3 {
-      .news-img-#{$i} {
-        background-image: url(../slice/news#{$i}.jpg);
-      }
-    }
-    @include res('m') {
-      .time-d, .news-abstract .news-content, .news-abstract .etc {
-        display: none;
-      }
-    }
-    .news-time {
-      width: 90px;
-      font-size: 12px;
-      text-align: left;
-      .time-y {
-        font-size: 17px;
-        padding-bottom: 3px;
-      }
-      @include res('m') {
-        width: auto;
-        color: #888;
-        .time-y {
-          font-size: r(32);
-          padding-bottom: 0;
-          &:before {
-            content: '[';
-          }
-          &:after {
-            content: ']';
-          }
+        .news-box {
+            padding-top: 40px;
+            color: $t;
+            @include res('m') {
+                padding-top: r(30);
+            }
         }
-      }
-    }
-    .news-abstract {
-      text-align: left;
-      width: 260px;
-      font-size: 12px;
-      .news-title {
-        display: block;
-        font-size: 17px;
-        max-width: 100%;
-        padding-bottom: 8px;
-        color: $t;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-      .news-content {
-        color: $a;
-        padding-bottom: 5px;
-        line-height: 1.8;
-      }
-      .etc {
-        color: $a;
-      }
-      @include res('m') {
-        width: r(520);
-        .news-title {
-          font-size: r(32);
-          padding-bottom: 0;
-          padding-left: r(14);
-          font-weight: normal;
-          color: #888;
-          max-width: r(490);
+        .news-img {
+            height: 120px;
+            background-size: 100%;
+            @include res('m') {
+                height: r(173);
+                background-size: 100% auto;
+                background-position: center bottom;
+                margin-bottom: r(20);
+            }
         }
-      }
+        @for $i from 1 through 3 {
+            .news-img-#{$i} {
+                background-image: url(../slice/news#{$i}.jpg);
+            }
+        }
+        @include res('m') {
+            .time-d, .news-abstract .news-content, .news-abstract .etc {
+                display: none;
+            }
+        }
+        .news-time {
+            width: 90px;
+            font-size: 12px;
+            text-align: left;
+            .time-y {
+                font-size: 17px;
+                padding-bottom: 3px;
+            }
+            @include res('m') {
+                width: auto;
+                color: #888;
+                .time-y {
+                    font-size: r(28);
+                    padding-bottom: 0;
+                    &:before {
+                        content: '[';
+                    }
+                    &:after {
+                        content: ']';
+                    }
+                }
+            }
+        }
+        .news-abstract {
+            text-align: left;
+            width: 260px;
+            font-size: 12px;
+            .news-title {
+                display: block;
+                font-size: 17px;
+                max-width: 100%;
+                padding-bottom: 8px;
+                color: $t;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .news-content {
+                color: $a;
+                padding-bottom: 5px;
+                line-height: 1.8;
+            }
+            .etc {
+                color: $a;
+            }
+            @include res('m') {
+                width: r(520);
+                .news-title {
+                    font-size: r(28);
+                    padding-bottom: 0;
+                    padding-left: r(30);
+                    font-weight: normal;
+                    color: #888;
+                    max-width: r(490);
+                }
+            }
+        }
     }
-  }
 }
 
 .index-partner-box {
-  padding: 60px 0 90px;
-  text-align: center;
-  .partner-list {
-    padding: 100px 0 60px;
-    @include res('m') {
-      width: r(700);
-      padding: 0 0;
-      margin: 0 auto;
+    padding: 60px 0 90px;
+    text-align: center;
+    .partner-list {
+        padding: 100px 0 60px;
+        @include res('m') {
+            width: r(700);
+            padding: 0 0;
+            margin: 0 auto;
+        }
     }
-  }
-  .partner-item {
-    width: 200px;
+    .partner-item {
+        width: 200px;
 
-    .partner-link {
-      display: block;
+        .partner-link {
+            display: block;
+        }
+        .p {
+            display: block;
+            height: 150px;
+            background-size: 200px 150px;
+        }
+        @for $i from 1 through 12 {
+            .p-#{$i} {
+                background-image: url(../slice/logo1.jpg);
+            }
+        }
+        @include res('m') {
+            width: r(175);
+            .p {
+                height: r(131);
+                background-size: r(175) r(131);
+            }
+        }
     }
-    .p {
-      display: block;
-      height: 150px;
-      background-size: 200px 150px;
-    }
-    @for $i from 1 through 12 {
-      .p-#{$i} {
-        background-image: url(../slice/logo1.jpg);
-      }
-    }
-    @include res('m') {
-      width: r(175);
-      .p {
-        height: r(131);
-        background-size: r(175) r(131);
-      }
-    }
-  }
 }
 
 .index-message-box {
-  position: relative;
-  z-index: 1;
-  height: 200px;
-  text-align: center;
-  background: #44bbee;
-  background: linear-gradient(to right, #44bbee, #6699ee);
-  overflow: hidden;
-  padding-top: 60px;
-  box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    height: 200px;
+    text-align: center;
+    background: #44bbee;
+    background: linear-gradient(to right, #44bbee, #6699ee);
+    overflow: hidden;
+    padding-top: 60px;
+    box-sizing: border-box;
 
-  .bg-chensen {
-    position: absolute;
-    z-index: -1;
-    top: -60px;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0;
-    font-size: 220px;
-    font-family: 'helvetica neue';
-    font-weight: bold;
-    color: rgba(0, 0, 0, .1);
-    line-height: 1;
-
-  }
-  .message-title {
-    font-size: 30px;
-    color: $w;
-    font-weight: normal;
-    padding-bottom: 20px;
-  }
-  .message-button {
-    font-size: 15px;
-    padding: 8px 60px;
-    color: $w;
-    border-radius: 5px;
-    font-weight: 100;
-    border: 1px solid $w;
-    cursor: pointer;
-    &:hover {
-      background-color: rgba(255, 255, 255, .8);
-      color: #55a9ee;
-    }
-  }
-  @include res('m') {
-    height: r(240);
-    padding-top: r(50);
     .bg-chensen {
-      font-size: r(150);
-      top: r(125);
+        position: absolute;
+        z-index: -1;
+        top: -60px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+        font-size: 220px;
+        font-family: 'helvetica neue';
+        font-weight: bold;
+        color: rgba(0, 0, 0, .1);
+        line-height: 1;
+
     }
     .message-title {
-      font-size: r(45);
-      padding-bottom: r(28);
+        font-size: 30px;
+        color: $w;
+        font-weight: normal;
+        padding-bottom: 20px;
     }
     .message-button {
-      font-size: r(30);
-      padding: r(12) r(62);
+        font-size: 15px;
+        padding: 8px 60px;
+        color: $w;
+        border-radius: 5px;
+        font-weight: 100;
+        border: 1px solid $w;
+        cursor: pointer;
+        &:hover {
+            background-color: rgba(255, 255, 255, .8);
+            color: #55a9ee;
+        }
     }
-  }
+    @include res('m') {
+        height: r(240);
+        padding-top: r(50);
+        .bg-chensen {
+            font-size: r(150);
+            top: r(125);
+        }
+        .message-title {
+            font-size: r(45);
+            padding-bottom: r(28);
+        }
+        .message-button {
+            font-size: r(30);
+            padding: r(12) r(62);
+        }
+    }
 }
 
 .small-title {
-  font-family: 'helvetica neue';
-  font-size: 20px;
-  color: #aaa;
-  font-weight: 100;
-  line-height: 2;
-  text-transform: Uppercase;
-  @include res('m') {
-    font-size: r(30);
-  }
+    font-family: 'helvetica neue';
+    font-size: 20px;
+    color: #aaa;
+    font-weight: 100;
+    line-height: 2;
+    text-transform: Uppercase;
+    @include res('m') {
+        font-size: r(30);
+    }
 }
 
 .index-solution-box, .index-trend-box, .index-partner-box {
-  @include res('m') {
-    padding: r(40) 0 r(60);
-  }
-  .section-title {
-    @include res('p') {
-      font-size: 30px;
-    }
     @include res('m') {
-      font-size: r(48);
+        padding: r(40) 0 r(100);
     }
-  }
+    .section-title {
+        @include res('p') {
+            font-size: 30px;
+        }
+        @include res('m') {
+            font-size: r(48);
+        }
+    }
 }
 

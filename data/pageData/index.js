@@ -6,7 +6,7 @@ module.exports = {
         {href: '/', name: '信息化<br/>整体蓝图', alt: ''},
         {href: '/', name: '辰森餐饮<br/>CRM管理系统', alt: ''},
         {href: '/', name: '辰森餐饮供应链<br/>SCM管理系统', alt: ''},
-        {href: '/', name: '辰森餐饮<br/>门店管理系统', alt: ''},
+        {href: '/', name: '辰森餐饮门店<br/>管理系统', alt: ''},
         {href: '/', name: '辰森餐饮总部<br/>BOH管理系统', alt: ''},
         {href: '/', name: '辰森餐饮<br/>电子商务平台OSP', alt: ''},
         {href: '/', name: '网上订餐', alt: ''},
