@@ -5,27 +5,35 @@ $(function () {
     var C = document.getElementById('msgBox');
     var SL = $('#solutionList');
     var SLW = SL.width();
+    var CW = document.documentElement.clientWidth;
+    var ml = 0;
+    var ml2 = 0;
     var A = {
         generateSolutionPosition: function () {
             var clientWidth = document.documentElement.clientWidth;
             if ((clientWidth < 1776 && clientWidth >= 1200)) {
-                var ml = (1776 - clientWidth) / 2;
+                ml = (1776 - clientWidth) / 2;
                 SL
                     .css('marginLeft', '-' + ml + 'px')
             } else if (clientWidth < 1200 && clientWidth >= 830) {
+                ml = '304px';
                 SL
                     .css('marginLeft', '-304px')
-                    .addClass('middle');
             } else if (clientWidth < 830) {
-                var ml2 = ( 20 * (SLW / document.documentElement.clientWidth) - 20) / 2;
+                ml2 = ( 20 * (SLW / document.documentElement.clientWidth) - 20) / 2;
                 SL
                     .css('marginLeft', '-' + ml2 + 'rem')
-                    .addClass('small');
             }
         },
         moveChoice: function (sT, WH) {
-            var mT = -80 + (sT + WH - $(C).offset().top) * 0.17;
-            $(window.M).css('top', mT + 'px')
+            var mT = '';
+            if (CW < 830) {
+                mT = -1.33333 + ((sT + WH - $(C).offset().top) * 20 / 750) * 0.8;
+                $(window.M).css('top', mT + 'rem')
+            } else {
+                mT = -80 + (sT + WH - $(C).offset().top) * 0.17;
+                $(window.M).css('top', mT + 'px')
+            }
         },
         slideItem: function () {
 
@@ -38,7 +46,6 @@ $(function () {
         slideSpeed: 300,
         singleItem: true
     });
-
     window.addEventListener("resize", function () {
         clearTimeout(T);
         T = setTimeout(A.generateSolutionPosition, 300)
@@ -55,9 +62,16 @@ $(function () {
 
     $('.hamburger-menu').on('click', function () {
         $('.bar').toggleClass('animate');
-        $(this).toggleClass('bg')
-        $('.nav-body').toggleClass('show')
-    })
+        $(this).toggleClass('bg');
+        $('.nav-body').toggleClass('show');
+        $('body').toggleClass('no-flow');
+    });
+    $('.nav-body').on('click', function (e) {
+        e = e || window.event;
+        if (e.target == e.currentTarget && CW < 831) {
+            $('.hamburger-menu').trigger('click')
+        }
+    });
 
 
     SL
@@ -72,13 +86,41 @@ $(function () {
             _this.addClass('active');
 
             var X = I - AI;
-            var nml = +(/matrix\(1, 0, 0, 1, (-?\d+), 0\)/.exec(window.getComputedStyle(SL.get(0)).transform)[1]);
-            var baz = Math.abs(X) * 244;
-            var rst = X > 0 ? nml - baz : nml + baz;
+            var nml, baz, rst, unit;
 
+            if (CW > 830) {
+                nml = +window.getComputedStyle(SL.get(0)).marginLeft.slice(0, -2);
+                baz = Math.abs(X) * 244;
+                rst = X > 0 ? nml - baz : nml + baz;
+                unit = 'px';
+            } else {
+                nml = (+window.getComputedStyle(SL.get(0)).marginLeft.slice(0, -3)) * 200 / 412;
+                baz = Math.abs(X) * 10.56;
+                rst = X > 0 ? nml - baz : nml + baz;
+                unit = 'rem';
+            }
 
-            SL.css('transform','translateX('+rst + 'px)');
+            SL.velocity({'marginLeft': rst + unit}, {
+                duration: 400,
+                complete: function () {
+                    var bazz = 0;
+                    if (CW >= 1200 && CW < 1776) {
+                        bazz = ml
+                    } else if (CW < 1200 && CW > 830) {
+                        bazz = 304
+                    } else if (CW <= 830){
+                        bazz = ml2
+                    } else {
+                        bazz = 0
+                    }
+                    SL.css('marginLeft', '-' + bazz + unit);
+                    if (X > 0) {
+                        $('.solution-item:lt(' + X + ')').insertAfter('.solution-item:last');
+                    } else {
+                        $('.solution-item:gt(' + (6 + X) + ')').insertBefore('.solution-item:first');
+                    }
+                }
+            })
 
         })
-
 });
