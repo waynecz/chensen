@@ -226,7 +226,7 @@ var path = require('path');
 
 var bb = aaa.test.map(d => {
     var text = `<span class="piece-a">${d.name}</span><span class="piece-b">${d.num}</span>`;
-    return [d.num, text]
+    return d.num
 });
 
 

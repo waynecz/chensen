@@ -21,7 +21,7 @@ app.engine('.html', template.__express);
 app.set('view engine', 'html');
 
 // 启用gzip
-// app.use(compression());
+app.use(compression());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

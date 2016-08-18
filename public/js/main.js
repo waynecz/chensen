@@ -23,6 +23,10 @@ $(function () {
                 ml2 = ( 20 * (SLW / document.documentElement.clientWidth) - 20) / 2;
                 SL
                     .css('marginLeft', '-' + ml2 + 'rem')
+
+                var DH = $(window).height() - document.querySelector('.nav-box').offsetHeight + 'px';
+
+                $('#nav').css('height', DH)
             }
         },
         moveChoice: function (sT, WH) {
@@ -35,7 +39,7 @@ $(function () {
                 $(window.M).css('top', mT + 'px')
             }
         },
-        slideItem: function () {
+        mobNavHeight: function () {
 
         }
     };
@@ -94,7 +98,7 @@ $(function () {
                 rst = X > 0 ? nml - baz : nml + baz;
                 unit = 'px';
             } else {
-                nml = (+window.getComputedStyle(SL.get(0)).marginLeft.slice(0, -3)) * 200 / 412;
+                nml = (+window.getComputedStyle(SL.get(0)).marginLeft.slice(0, -3)) * 20 / 412;
                 baz = Math.abs(X) * 10.56;
                 rst = X > 0 ? nml - baz : nml + baz;
                 unit = 'rem';
