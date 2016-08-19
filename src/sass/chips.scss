@@ -97,3 +97,13 @@ $bar-spacing: r(17);
 .ts-15 {
   transition: .15s ease-out;
 }
+// huanhang
+@mixin hh {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// ts
+@mixin ts {
+  transition: .2s ease-out;
+}

@@ -1,0 +1,175 @@
+.news-banner-box {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    background: url("../imgs/news_banner_4.jpg") no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    text-align: center;
+
+    .banner {
+        width: 100%;
+        height: auto;
+    }
+    .mask {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 29, 56, 0.63);
+    }
+    .banner-title {
+        color: $w;
+        font-size: 80px;
+        font-weight: 200;
+        font-family: "PT Serif", STZhongsong, 华文中宋, "Microsoft Yahei", serif;
+        padding-top: 120px;
+        @include res('m') {
+            font-size: r(90);
+            padding-top: r(100);
+        }
+    }
+    .cs-title {
+        color: $w;
+        font-size: 20px;
+        padding: 30px 0 50px;
+        @include res('m') {
+            font-size: r(20);
+            padding: r(30) 0 r(50);
+        }
+    }
+    .contact-us-button {
+        display: inline-block;
+        font-size: 20px;
+        background: $lr;
+        border-radius: 5px;
+        color: $w;
+        cursor: pointer;
+        transition: .2s ease-out;
+        padding: 10px 50px;
+        border: 1px solid $lr;
+        &:hover {
+            color: $w;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        }
+        @include res('m') {
+            font-size: r(20);
+            padding: r(10)  r(50);
+        }
+    }
+
+    @include res('m') {
+        height: r(450);
+    }
+
+}
+
+.news-content-box {
+    background: #f9f9f9;
+    padding: 60px 0;
+
+    @include res('m') {
+        padding: r(60) 0;
+    }
+    .news-body-box {
+        @include res('m') {
+            padding: 0 r(35);
+        }
+    }
+    .news-block {
+        margin-bottom: 30px;
+        @include res('m') {
+            margin-bottom: r(30);
+        }
+    }
+    .ab-wrap {
+
+    }
+    .news-title {
+        font-size: 35px;
+        font-family: "PT Serif", STZhongsong, 华文中宋, "Microsoft Yahei", serif;
+        color: $lb;
+        cursor: pointer;
+        margin: 20px 0 10px 0;
+        font-weight: bold;
+        transition: .15s ease-out;
+        @include res('m') {
+            font-size: r(35);
+            width: 85%;
+            margin: r(20) 0 r(10) 0;
+            @include hh
+        }
+        &:hover {
+            color: $lr;
+            text-decoration: blink;
+        }
+        .iconfont {
+            font-size: 30px;
+            font-weight: 100;
+            @include res('m') {
+                font-size: r(60);
+            }
+        }
+    }
+    .time {
+        color: $lr;
+        font-weight: 300;
+        font-size: 20px;
+        font-family: "PT Serif", STZhongsong, 华文中宋, "Microsoft Yahei", serif;
+        text-indent: 10px;
+        @include res('m') {
+            font-size: r(20);
+            text-indent: r(20);
+        }
+    }
+    .news-abs {
+        padding-top: 30px;
+        font-size: 15px;
+        color: #999;
+        line-height: 2;
+        max-width: 90%;
+        padding-bottom: 20px;
+        @include res('m') {
+            padding-top: r(20);
+            font-size: r(15);
+            max-width: 100%;
+            padding-bottom: r(20);
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    }
+    .read-more {
+        font-size: 14px;
+        color: $lb;
+        padding: 2px;
+        border-bottom: 1px $lb dotted;
+        cursor: pointer;
+        font-family: "PT Serif", STZhongsong, 华文中宋, "Microsoft Yahei", serif;
+        .iconfont {
+            font-size: 12px;
+            @include res('m') {
+                font-size: r(12);
+            }
+        }
+        &:hover {
+            color: $lr;
+        }
+        @include res('m') {
+            font-size: r(14);
+        }
+    }
+
+    .pager {
+        text-align: center;
+        padding: 30px 0;
+        ul {
+            display: inline-block;
+        }
+    }
+}

@@ -8,9 +8,9 @@ router.get('/', function (req, res, next) {
     res.renderPage('index', pageData);
 });
 
-router.get('/about', function (req, res, next) {
-    var title = '关于我们';
-    res.renderPage('about', {
+router.get('/production', function (req, res, next) {
+    var title = '产品及服务';
+    res.renderPage('production', {
         title: title
     });
 });
@@ -29,9 +29,9 @@ router.get('/case', function (req, res, next) {
     });
 });
 
-router.get('/contact', function (req, res, next) {
+router.get('/about', function (req, res, next) {
     var title = '联系我们';
-    res.renderPage('contact', {
+    res.renderPage('about', {
         title: title
     });
 });

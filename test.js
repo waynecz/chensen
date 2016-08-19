@@ -4,10 +4,8 @@ var aaa = {
         {"name": "Taiwan", "num": "+886"},
         {"name": "Hong Kong", "num": "+852"},
         {"name": "Macau", "num": "+853"},
-        {"name": "United States", "num": "+1 "},
-        {"name": "Canada", "num": "+1"},
-        {"name": "Russia", "num": "+7 "},
-        {"name": "Kazakhstan", "num": "+7"},
+        {"name": "US/CA", "num": "+1"},
+        {"name": "RUS/KZ", "num": "+7"},
         {"name": "Egypt", "num": "+20"},
         {"name": "South Africa", "num": "+27"},
         {"name": "Greece", "num": "+30"},
@@ -224,13 +222,27 @@ var aaa = {
 
 var path = require('path');
 
+
+var qq = []
+var ww = []
+var ee = []
+var rr = []
+
+var map = {
+    2: qq,
+    3: ww,
+    4: ee,
+    5: rr
+};
+
 var bb = aaa.test.map(d => {
     var text = `<span class="piece-a">${d.name}</span><span class="piece-b">${d.num}</span>`;
-    return d.num
+
+    map[d.num.length].push(d.num)
 });
 
 
 var {writeFilePrms} = require('./utils/fsPrms');
 
-writeFilePrms(path.resolve(__dirname, './test.json'), JSON.stringify(bb));
+writeFilePrms(path.resolve(__dirname, './test.json'), JSON.stringify(map));
 

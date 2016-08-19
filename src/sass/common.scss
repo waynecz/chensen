@@ -1,12 +1,14 @@
 // icon-font-start
 @font-face {
     font-family: 'iconfont';
-    src: url('//at.alicdn.com/t/font_1471450823_4736712.eot'); /* IE9*/
-    src: url('//at.alicdn.com/t/font_1471450823_4736712.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('//at.alicdn.com/t/font_1471450823_4736712.woff') format('woff'), /* chrome、firefox */
-    url('//at.alicdn.com/t/font_1471450823_4736712.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-    url('//at.alicdn.com/t/font_1471450823_4736712.svg#iconfont') format('svg'); /* iOS 4.1- */
+    src: url('//at.alicdn.com/t/font_1471540999_4700909.eot'); /* IE9*/
+    src: url('//at.alicdn.com/t/font_1471540999_4700909.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('//at.alicdn.com/t/font_1471540999_4700909.woff') format('woff'), /* chrome、firefox */
+    url('//at.alicdn.com/t/font_1471540999_4700909.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('//at.alicdn.com/t/font_1471540999_4700909.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
+
+
 
 .iconfont {
     font-family: "iconfont";
@@ -37,8 +39,11 @@ body {
     margin-left: auto;
     margin-right: auto;
     @include res('m') {
-        width: r(750);
+        width: r(750) !important;
         box-sizing: border-box;
+    }
+    &.s {
+        width: 1000px;
     }
 }
 
@@ -46,6 +51,7 @@ body {
     position: relative;
     height: 80px;
     background-color: $w;
+    box-shadow: 0 0 10px rgba(0,0,0,.09);
     @include res('m') {
         position: fixed;
         z-index: 2;
