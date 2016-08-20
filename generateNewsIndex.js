@@ -14,7 +14,7 @@ var Rst = {
 
 var generateJSON = function () {
     return readDirPrms(newsSrcPath).then(fileNames => {
-        return Promise.all(fileNames.map(fileName => {
+        return Promise.all(fileNames.reverse().map(fileName => {
             let filePath = newsSrcPath + '/' + fileName;
             let or = fileName.split('.');
             let title = or[1];
