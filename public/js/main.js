@@ -139,8 +139,16 @@ $(function () {
 
     if (page = 'news') {
         $('#page').pagination({
-            items: 5,
-            itemsOnPage: 5,
+            items: + document.getElementById('TIT').getAttribute('data'),
+            currentPage: + document.getElementById('CPG').getAttribute('data'),
+            itemsOnPage: 6,
+            displayedPages: 3,
+            prevText: '<',
+            nextText: '>',
+            hrefTextPrefix: '/news?p=',
+            onPageClick: function (pageNumber, event) {
+                window.location.reload()
+            },
             cssStyle: 'light-theme'
         });
     }

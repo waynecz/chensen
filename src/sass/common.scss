@@ -138,9 +138,11 @@ body {
                 padding-right: r(50);
                 color: #cecdd1;
                 line-height: 1.6;
-                //font-family: 'helvetica neue';
                 font-weight: 200;
                 vertical-align: middle;
+                .iconfont  {
+                    font-size: r(30);
+                }
             }
         }
         .nav-title {

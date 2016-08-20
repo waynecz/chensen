@@ -9,6 +9,7 @@ var maps = require('gulp-sourcemaps');
 var imagemin = require('gulp-imagemin');
 var sprite = require("gulp-tmtsprite");
 var gulpif = require('gulp-if');
+
 require('colors');
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -145,3 +146,15 @@ gulp.task('dev',
 gulp.task('prod',
     gulp.series('css:pro', 'sp', 'imgmin')
 );
+
+// 一次性任务
+var rn = require('gulp-rename');
+
+gulp.task('rn', (cb) => {
+   gulp.src('./data/news/#*.md')
+       .pipe(rn(function (path) {
+           path.basename = path.basename.replace('#', '')
+       }))
+       .pipe(gulp.dest('./data/news/'))
+    cb()
+});
