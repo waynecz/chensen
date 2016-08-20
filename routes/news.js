@@ -10,10 +10,10 @@ router.get('/', (req, res, next) => {
     var totalNews = news.length;
     var newsList = news.slice((currentPage-1)*6, currentPage*6);
     res.renderPage('news', {
-        title,
-        newsList,
-        currentPage,
-        totalNews
+        title: title,
+        newsList: newsList,
+        currentPage: currentPage,
+        totalNews: totalNews
     });
 });
 
