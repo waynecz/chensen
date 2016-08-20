@@ -18,7 +18,7 @@ var md2html = function () {
     }).then(datas => {
         return Promise.all(datas.map(data => {
             var buffer = md.render(data.data);
-            var rstFileName = data.fileName.split('.')[0] + '.html';
+            var rstFileName = data.fileName.split('.')[1] + '.html';
             return writeFilePrms(newsDistPath + '/' + rstFileName, buffer)
         }))
     })
@@ -26,7 +26,7 @@ var md2html = function () {
 
 var singleMd2html = function (file, isDel) {
     var fileName = file.substring(file.lastIndexOf('/') + 1);
-    var rstFileName = fileName.split('.')[0] + '.html';
+    var rstFileName = fileName.split('.')[1] + '.html';
     var rstFilePath = newsDistPath + '/' + rstFileName;
 
     if (isDel) return delFilePrms(rstFilePath);

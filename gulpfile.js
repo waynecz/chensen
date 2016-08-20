@@ -151,10 +151,18 @@ gulp.task('prod',
 var rn = require('gulp-rename');
 
 gulp.task('rn', (cb) => {
-   gulp.src('./data/news/#*.md')
+   gulp.src('./data/news/*.md')
        .pipe(rn(function (path) {
-           path.basename = path.basename.replace('#', '')
+           let a = path.basename.split('.');
+           a[1] = a[1].trim();
+           let b = a[1].split('-');
+           if (b[1].length == 1) b[1] = '0' + b[1];
+           if (b[2].length == 1) b[2] = '0' + b[2];
+           let c = b.join('-');
+           a[1] = c;
+           let d = a.reverse().join('.');
+           path.basename = d
        }))
-       .pipe(gulp.dest('./data/news/'))
+       .pipe(gulp.dest('./data/news/'));
     cb()
 });

@@ -17,9 +17,9 @@ var generateJSON = function () {
         return Promise.all(fileNames.map(fileName => {
             let filePath = newsSrcPath + '/' + fileName;
             let or = fileName.split('.');
-            let title = or[0];
-            let y = or[1].split('-')[0];
-            let d = or[1].substring(5);
+            let title = or[1];
+            let y = or[0].split('-')[0];
+            let d = or[0].substring(5);
             let obj = {title, y, d};
             Rst.datas.push(obj);
             return readFilePrms(filePath, fileName)
