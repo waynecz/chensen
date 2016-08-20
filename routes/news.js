@@ -5,7 +5,7 @@ var fs = require('fs');
 
 router.get('/', (req, res, next) => {
     var title = '新闻中心';
-    var currentPage = req.param('p') || 1;
+    var currentPage = req.query.p || 1;
     var news = require(path.join(process.cwd(), './data/pageData/newsIndex.json')).datas;
     var totalNews = news.length;
     var newsList = news.slice((currentPage-1)*6, currentPage*6);
