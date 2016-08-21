@@ -216,7 +216,7 @@ li {
 }
 
 ::selection {
-  background: #333;
+  background: $lb;
   color: #fff;
 }
 
@@ -226,7 +226,7 @@ li {
 }
 
 ::-webkit-selection {
-  background: #333;
+  background: $lb;
   color: #fff;
 }
 

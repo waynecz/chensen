@@ -8,8 +8,6 @@
     url('//at.alicdn.com/t/font_1471540999_4700909.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
 
-
-
 .iconfont {
     font-family: "iconfont";
     font-size: 16px;
@@ -54,7 +52,7 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,.09);
     @include res('m') {
         position: fixed;
-        z-index: 2;
+        z-index: 10;
         top: 0;
         height: r(100);
         box-sizing: border-box;
@@ -78,11 +76,10 @@ body {
         text-align: right;
         @include res('m') {
             display: none;
-            position: fixed;
-            top: r(100);
+            position: absolute;
+            top: r(98);
             left: 0;
             right: 0;
-            bottom: 0;
             height: auto;
             z-index: 2;
             background: rgba(0,0,0, .7);
@@ -121,7 +118,6 @@ body {
             top: 0;
             right: 0;
             width: 12rem;
-
             padding: r(40) 0 0 0;
             background: rgb(255, 255, 255);
         }

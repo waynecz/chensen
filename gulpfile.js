@@ -7,8 +7,8 @@ var autoprefixer = require('autoprefixer');
 var postcss = require('gulp-postcss');
 var maps = require('gulp-sourcemaps');
 var imagemin = require('gulp-imagemin');
-var sprite = require("gulp-tmtsprite");
 var gulpif = require('gulp-if');
+var sprites = require('postcss-sprites').default;
 
 require('colors');
 
@@ -97,10 +97,8 @@ gulp.task('nodemon', (cb) => {
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-gulp.task('imgmin', () => {
-        gulp.src('./src/imgs/*.*')
-            .pipe(imagemin([imagemin.jpegtran()]))
-            .pipe(gulp.dest(path.join(__dirname, './public/imgs')))
+gulp.task('img', () => {
+        require('./imageMin');
     }
 );
 
@@ -109,6 +107,15 @@ gulp.task('sp', () => {
         .pipe(sprite({slicePath: '../slice',}))
         .pipe(gulpif('*.png', gulp.dest('./public/sprite/'), gulp.dest('./public/css/')));
     return Promise.resolve()
+});
+
+gulp.task('sprites', function () {
+    return sprity.src({
+        src: './slice/*.{png,jpg}',
+        out: './public/sprite',
+        style: './public/style-output.css',
+    })
+        .pipe(gulpif('*.png', gulp.dest('./dist/img/'), gulp.dest('./dist/css/')))
 });
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

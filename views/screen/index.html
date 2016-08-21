@@ -41,18 +41,18 @@
     </p>
     <div class="c-row">
         <ul class="trend-list cf">
-            {{each newsLists}}
+            {{each newsList}}
             <li class="trend-item fl" data-aos="fade-up" data-aos-duration="{{(($index+2)/9+1) * 1400}}" data-aos-delay="{{$index * 200}}" data-aos-once="true">
                 <div class="news-img news-img-{{$index + 1}}"></div>
                 <div class="news-box">
                     <div class="news-time d-ib v-t">
-                        <p class="time-y">{{$value.date}}</p>
-                        <p class="time-d">{{$value.year}}</p>
+                        <p class="time-y">{{$value.d}}</p>
+                        <p class="time-d">{{$value.y}}</p>
                     </div>
                     <div class="news-abstract d-ib v-t">
-                        <h4><a class="news-title" href="">{{$value.title}}</a></h4>
-                        <p class="news-content">{{$value.content}}</p>
-                        <span class="etc">>></span>
+                        <h4><a class="news-title" href="/news/{{$value.title}}">{{$value.title}}</a></h4>
+                        <p class="news-content">{{#$value.content}}</p>
+                        <a href="/news/{{$value.title}}"><span class="etc">>></span></a>
                     </div>
                 </div>
 

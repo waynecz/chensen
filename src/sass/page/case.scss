@@ -1,0 +1,47 @@
+.case-banner-box {
+    height: 390px;
+    background:#051132 url(../imgs/case_banner.jpg) no-repeat center 80px;
+    background-size: 1680px 390px;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 150px;
+    background-attachment: fixed;
+
+    .banner-title {
+        font-size: 40px;
+        color: $w;
+        font-weight: 100;
+    }
+    .small-title {
+        color: $w;
+        font-size: 20px;
+
+    }
+}
+
+.case-list-box {
+    padding-top: 10px;
+    .hr {
+        position: relative;
+        z-index: 1;
+        &:before {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            z-index: -1;
+            content: '';
+            display: block;
+            height: 1px;
+            background: #ccc;
+        }
+    }
+    .list-title {
+        background: #fff;
+        display: inline-block;
+        line-height: 2;
+        padding-right: 10px;
+        color: $t;
+        font-size: 15px;
+        font-weight: 100;
+    }
+}
