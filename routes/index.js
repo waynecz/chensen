@@ -28,10 +28,9 @@ router.get('/solution', function (req, res, next) {
 });
 
 router.get('/case', function (req, res, next) {
-    var title = '经典案例';
-    res.renderPage('case', {
-        title: title
-    });
+    var pageData = require('../data/pageData/case');
+    pageData.title = '经典案例';
+    res.renderPage('case', pageData);
 });
 
 router.get('/about', function (req, res, next) {

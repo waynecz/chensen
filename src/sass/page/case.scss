@@ -20,7 +20,7 @@
 }
 
 .case-list-box {
-    padding-top: 10px;
+    padding: 10px 0 60px;
     .hr {
         position: relative;
         z-index: 1;
@@ -43,5 +43,21 @@
         color: $t;
         font-size: 15px;
         font-weight: 100;
+    }
+    .customer-box {
+        width: 389px;
+        height: 370px;
+        padding: 15px;
+        overflow: hidden;
+        box-sizing: border-box;
+        float: left;
+        &:nth-child(3n + 2) {
+            margin: 0 12px;
+        }
+    }
+    .customer-brand {
+        .cus-logo {
+
+        }
     }
 }
