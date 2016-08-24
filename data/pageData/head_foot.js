@@ -1,24 +1,27 @@
 module.exports = {
     footLists: [
         {
-            title: '解决方案',
+            title: '产品及服务',
             subList: [
-                {href: '/', content: '辰森餐饮门店管理系统'},
-                {href: '/', content: '辰森餐饮供应链SCM管理系统'},
-                {href: '/', content: '辰森餐饮总部BOH管理系统'},
-                {href: '/', content: '辰森餐饮CRM管理系统'},
-                {href: '/', content: '辰森餐饮电子商务平台OSP'},
-                {href: '/', content: '信息化整体蓝图'},
-                {href: '/', content: '网上订餐'},
-                {href: '/', content: '呼叫中心/外送'}
+                {href: '/', content: '后台管理（BOH）'},
+                {href: '/', content: '供应链管理'},
+                {href: '/', content: 'POS'},
+                {href: '/', content: '外卖管理'},
+                {href: '/', content: '移动点餐'},
+                {href: '/', content: '自助点餐'},
+                {href: '/', content: '营销活动'},
+                {href: '/', content: '会员管理'},
+                {href: '/', content: '仓储管理'},
+                {href: '/', content: '数据分析'},
             ]
         },
         {
             title: '关于辰森',
             subList: [
-                {href: '/', content: '公司背景'},
-                {href: '/', content: '辰森荣誉'},
-                {href: '/', content: '辰森优势'}
+                {href: '/about#I', content: '企业简介'},
+                {href: '/about#honour', content: '企业荣誉'},
+                {href: '/about#milestone', content: '企业大事记'},
+                {href: '/about#B', content: '联系我们'}
             ]
         }
     ]

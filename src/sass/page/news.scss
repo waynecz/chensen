@@ -32,7 +32,6 @@
         color: $w;
         font-size: 80px;
         font-weight: 200;
-        font-family: "PT Serif", STZhongsong, 华文中宋, "Microsoft Yahei", serif;
         padding-top: 100px;
         &.small {
             padding-top: 150px;
@@ -127,12 +126,12 @@
     }
     .news-title {
         font-size: 35px;
-        font-family: "PT Serif", STZhongsong, 华文中宋, "Microsoft Yahei", serif;
         color: $lb;
         cursor: pointer;
         margin: 20px 0 10px 0;
-        font-weight: bold;
+        font-weight: 200;
         transition: .15s ease-out;
+
         @include res('m') {
             font-size: r(35);
             width: 100%;
@@ -155,7 +154,6 @@
         color: $lr;
         font-weight: 300;
         font-size: 20px;
-        font-family: "PT Serif", STZhongsong, 华文中宋, "Microsoft Yahei", serif;
         text-indent: 10px;
         @include res('m') {
             font-size: r(20);
@@ -192,7 +190,6 @@
         margin-top: 20px;
         border-bottom: 1px $lb dotted;
         cursor: pointer;
-        font-family: "PT Serif", STZhongsong, 华文中宋, "Microsoft Yahei", serif;
         .iconfont {
             font-size: 12px;
             @include res('m') {
@@ -236,7 +233,6 @@
         text-indent: 32px;
         line-height: 1.8;
         letter-spacing: 1px;
-        font-family: "PT Serif", STZhongsong, 华文中宋, "Microsoft Yahei", serif;
         @include res('m') {
             font-size: r(28);
             width: 18.5rem;

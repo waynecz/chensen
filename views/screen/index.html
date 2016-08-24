@@ -13,14 +13,14 @@
 </div>
 <!-- case-->
 <div class="index-solution-box">
-    <h3 class="solution-title section-title ta-c">解决方案</h3>
+    <h3 class="solution-title section-title ta-c">产品及服务</h3>
     <p class="small-title">
-        solution scenario
+        productions & services
     </p>
     <div class="list-wrap">
         <ul class="solution-list cf" id="solutionList">
             {{each solutionLists}}
-            <li class="solution-item inb-tac {{if $index == 3}}active{{/if}}" data-index="{{$index + 1}}">
+            <li class="solution-item inb-tac {{if $index == 4}}active{{/if}}" data-index="{{$index + 1}}">
                 <div class="solution-card">
                     <div class="icon icon-{{$index + 1}}"></div>
                     <h5 class="card-name">{{#$value.name}}</h5>
@@ -70,8 +70,8 @@
     <ul class="c-row partner-list cf">
         {{each partnerLists}}
         <li class="partner-item fl"  data-aos="zoom-in-up"  data-aos-duration="1000" data-aos-delay="{{$index * 50}}" data-aos-once="true">
-            <a href="{{$value.href}}" class="partner-link">
-                <i class="p p-{{$index + 1}}"></i>
+            <a href="javascript:void(0)" class="partner-link">
+                <img src="slice/{{$value.href}}.png" alt="">
             </a>
         </li>
         {{/each}}

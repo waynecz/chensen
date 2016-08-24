@@ -39,7 +39,7 @@
     .solution-list {
         position: absolute;
         left: 0;
-        width: 1776px;
+        width: 2508px;
         display: inline-block;
         white-space: nowrap;
         padding: 55px 0 40px;
@@ -109,10 +109,11 @@
     .card-name {
         color: $or;
         font-size: 20px;
-        height: 90px;
+        height: 120px;
+        box-sizing: border-box;
         font-weight: normal;
         line-height: 1.5;
-        padding: 10px 0 20px;
+        padding: 40px 0 20px;
         margin: 0;
         @include res('m') {
             font-size: r(36);
@@ -129,9 +130,9 @@
             width: r(100);
         }
     }
-    @for $i from 1 through 7 {
+    @for $i from 1 through 10 {
         .icon-#{$i} {
-            background-image: url(../slice/icon_0#{$i}.png);
+            background-image: url(../slice/pro_icon_0#{$i}.png);
         }
     }
     .card-button {
@@ -252,11 +253,22 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
+                transition: .1s ease-out;
             }
+
             .news-content {
                 color: $a;
                 padding-bottom: 5px;
                 line-height: 1.8;
+                transition: .1s ease-out;
+            }
+            h4:hover {
+                .news-title{
+                    color: $or;
+                }
+                + .news-content {
+                    color: #777;
+                }
             }
             .etc {
                 color: $a;
@@ -297,11 +309,6 @@
             display: block;
             height: 150px;
             background-size: 200px 150px;
-        }
-        @for $i from 1 through 12 {
-            .p-#{$i} {
-                background-image: url(../slice/logo1.jpg);
-            }
         }
         @include res('m') {
             width: r(175);

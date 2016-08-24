@@ -7,9 +7,9 @@
 <div id="SSB" class="solution-subnav-box">
     <div class="wrap">
         <div class="c-row cf p-r">
-            <div class="subnav-unit">单店小型连锁</div>
-            <div class="subnav-unit">中型连锁</div>
-            <div class="subnav-unit">大型连锁</div>
+            <div class="subnav-unit"><a href="/solution#s">单店小型连锁</a></div>
+            <div class="subnav-unit"><a href="/solution#m">中型连锁</a></div>
+            <div class="subnav-unit"><a href="/solution#l">大型连锁</a></div>
             <div class="hr l1"></div>
         </div>
     </div>
@@ -18,7 +18,7 @@
     <div class="c-row">
         <div class="card-wrap cf">
             {{each smallLists}}
-            <div class="solution-card card-{{$index + 1}}">
+            <div class="solution-card card-{{$index + 1}}" data-aos="flip-left" data-aos-once="true" data-aos-delay="{{($index+1)*100}}" data-aos-duration="700">
                 <div class="card-title">{{$value.title}}</div>
                 <ul class="card-list">
                     {{each $value.list}}
@@ -34,7 +34,7 @@
     <div class="c-row">
         <div class="card-wrap cf">
             {{each middleLists}}
-            <div class="solution-card card-{{$index + 4}}">
+            <div class="solution-card card-{{$index + 4}}"  data-aos="flip-right" data-aos-once="true" data-aos-delay="{{($index+1)*100}}" data-aos-duration="700">
                 <div class="card-title">{{$value.title}}</div>
                 <ul class="card-list cf">
                     {{each $value.list}}
@@ -50,7 +50,7 @@
     <div class="c-row">
         <div class="card-wrap cf">
             {{each largeLists}}
-            <div class="solution-card d card-{{$index + 7}}">
+            <div class="solution-card d card-{{$index + 7}}" data-aos="flip-left" data-aos-once="true" data-aos-delay="{{($index+1)*100}}" data-aos-duration="700">
                 <div class="card-title">{{$value.title}}</div>
                 <ul class="card-list cf d">
                     {{each $value.list}}

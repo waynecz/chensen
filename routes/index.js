@@ -15,10 +15,9 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/production', function (req, res, next) {
-    var title = '产品及服务';
-    res.renderPage('production', {
-        title: title
-    });
+    var pageData = require('../data/pageData/production');
+    pageData.title = '产品及服务';
+    res.renderPage('production', pageData);
 });
 
 router.get('/solution', function (req, res, next) {
@@ -34,17 +33,9 @@ router.get('/case', function (req, res, next) {
 });
 
 router.get('/about', function (req, res, next) {
-    var title = '联系我们';
-    res.renderPage('about', {
-        title: title
-    });
-});
-
-router.get('/message', function (req, res, next) {
-    var title = '咨询留言';
-    res.renderPage('message', {
-        title: title
-    });
+    var pageData = require('../data/pageData/about');
+    pageData.title = '联系我们';
+    res.renderPage('about', pageData);
 });
 
 router.use('/news', require('./news'));

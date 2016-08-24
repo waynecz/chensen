@@ -13,17 +13,19 @@
         height: r(80);
     }
     .subnav-unit {
-        color: #333;
-        float: left;
-        width: 33.333333%;
-        text-align: center;
-        height: 50px;
-        line-height: 50px;
-        cursor: pointer;
-        @include res('m') {
-            height: r(80);
-            line-height: r(80);
-            font-size: r(24);
+        a {
+            color: #333;
+            float: left;
+            width: 33.333333%;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            cursor: pointer;
+            @include res('m') {
+                height: r(80);
+                line-height: r(80);
+                font-size: r(24);
+            }
         }
     }
     &.fixed {

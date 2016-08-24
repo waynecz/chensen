@@ -1,6 +1,6 @@
 .case-banner-box {
     height: 390px;
-    background:#051132 url(../imgs/case_banner.jpg) no-repeat center 80px;
+    background: #051132 url(../imgs/case_banner.jpg) no-repeat center 80px;
     background-size: 1680px 390px;
     text-align: center;
     box-sizing: border-box;
@@ -11,16 +11,31 @@
         font-size: 40px;
         color: $w;
         font-weight: 100;
+        @include res('m') {
+            font-size: r(50);
+        }
     }
     .small-title {
         color: $w;
         font-size: 20px;
+        @include res('m') {
+            font-size: r(20);
+        }
 
+    }
+    @include res('m') {
+        width: 20rem;
+        height: 8.64rem;
+        padding-top: r(100);
+        background-size: 20rem 4.64rem;
     }
 }
 
 .case-list-box {
-    padding: 10px 0 60px;
+    padding: 20px 0 60px;
+    @include res('m') {
+        padding: r(30) r(20) r(60);
+    }
     .hr {
         position: relative;
         z-index: 1;
@@ -43,21 +58,117 @@
         color: $t;
         font-size: 15px;
         font-weight: 100;
+        @include res('m') {
+            padding: r(30) r(20) r(60);
+        }
     }
     .customer-box {
         width: 389px;
-        height: 370px;
+        height: 470px;
         padding: 15px;
+        margin-top: 30px;
         overflow: hidden;
         box-sizing: border-box;
         float: left;
+        border-radius: 8px;
+        box-shadow: 0 0 5px rgba(0,0,0,.12);
+
         &:nth-child(3n + 2) {
-            margin: 0 12px;
+            margin-left: 16px;
+            margin-right: 16px;
+        }
+        @include res('m') {
+            width: r(710);
+            height: auto;
+            padding: r(25);
+            margin-top: r(30);
+
+            &:nth-child(3n + 2) {
+                margin-left: 0;
+                margin-right: 0;
+            }
         }
     }
     .customer-brand {
+        height: 100px;
+        border-bottom: 1px #ddd solid;
+        @include res('m') {
+            height: auto;
+        }
         .cus-logo {
+            display: inline-block;
+            vertical-align: middle;
+            .l {
+                width: 130px;
+                @include res('m') {
+                    width: r(230);
+                }
+            }
+        }
+        .cus-name {
+            font-size: 30px;
+            display: inline-block;
+            padding-left: 20px;
+            margin: 0;
+            font-weight: 200;
+            color: #444;
+            vertical-align: middle;
+            white-space: nowrap;
+            &.s {
+                font-size: r(20);
+            }
+            @include res('m') {
+                font-size: r(50);
+                padding-left: r(30);
+            }
+        }
+    }
+    .cus-use {
+        border-bottom: 1px #eee solid;
+        font-size: 13px;
+        color: #aaa;
+        padding: 10px 0;
+        @include res('m') {
+            padding: r(20) 0;
+        }
+        .ind-state {
+            min-height: 35px;
+            box-sizing: border-box;
+            @include res('m') {
+                min-height: r(50);
+            }
+            .sec-t {
+                display: inline-block;
+                width: 57px;
+                box-sizing: border-box;
+                padding: 3px 0 3px 3px;
+                text-align: right;
+                @include res('m') {
+                    width: r(150);
+                }
+            }
+            .content {
+                width: 260px;
+                box-sizing: border-box;
+                display: inline-block;
+                padding: 3px 10px;
+                vertical-align: top;
+                @include res('m') {
+                    width: r(450);
+                }
+            }
+        }
 
+    }
+    .cus-content {
+        color: #aaa;
+        font-size: 14px;
+        padding: 20px 3px;
+        line-height: 1.8;
+        @include res('m') {
+            font-size: r(20);
+            padding: r(40) r(10);
+            letter-spacing: 1px;
         }
     }
 }

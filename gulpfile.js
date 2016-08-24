@@ -151,7 +151,7 @@ gulp.task('dev',
 );
 
 gulp.task('prod',
-    gulp.series('css:pro', 'sp', 'imgmin')
+    gulp.series('css:pro', 'sp', 'img')
 );
 
 // 一次性任务
@@ -161,13 +161,13 @@ gulp.task('rn', (cb) => {
    gulp.src('./data/news/*.md')
        .pipe(rn(function (path) {
            let a = path.basename.split('.');
-           a[1] = a[1].trim();
-           let b = a[1].split('-');
+           a[0] = a[0].trim();
+           let b = a[0].split('-');
            if (b[1].length == 1) b[1] = '0' + b[1];
            if (b[2].length == 1) b[2] = '0' + b[2];
            let c = b.join('-');
-           a[1] = c;
-           let d = a.reverse().join('.');
+           a[0] = c;
+           let d = a.join('.');
            path.basename = d
        }))
        .pipe(gulp.dest('./data/news/'));

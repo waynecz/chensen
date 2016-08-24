@@ -14,15 +14,30 @@ $(function () {
             }
         },
     };
+    var navU = $('.nav-unit .n', '#nav')
+    navU.each(function (i, e) {
+        var c = $(e).attr('href');
+       if ( c.indexOf(page) != -1 ) {
+           $(e).addClass('now-in')
+       } else if (page == 'index') {
+           navU.eq(0).addClass('now-in')
+       }
+    });
 
     window.addEventListener('scroll', function () {
-
         var sT = $(this).scrollTop();
         var WH = $(this).height();
+        if (sT > 500) {
+            $('#backToTop').show()
+        } else {
+            $('#backToTop').hide()
+        }
         if (( $(C).offset().top - $(this).scrollTop() ) > $(this).height()) return;
         Act.moveChoice(sT, WH)
     }, false);
-
+    $('#backToTop').on('click', function () {
+        $('body,html').animate({ scrollTop: 0 }, 400);
+    });
     AOS.init();
 
     $('.hamburger-menu').on('click', function () {
@@ -59,8 +74,8 @@ $(function () {
             var A = {
                 generateSolutionPosition: function () {
                     var clientWidth = document.documentElement.clientWidth;
-                    if ((clientWidth < 1776 && clientWidth >= 1200)) {
-                        ml = (1776 - clientWidth) / 2;
+                    if ((clientWidth < 2264 && clientWidth >= 1200)) {
+                        ml = (2264 - clientWidth) / 2;
                         SL
                             .css('marginLeft', '-' + ml + 'px')
                     } else if (clientWidth < 1200 && clientWidth >= 830) {
@@ -68,16 +83,12 @@ $(function () {
                         SL
                             .css('marginLeft', '-304px')
                     } else if (clientWidth < 830) {
-                        ml2 = ( 20 * (SLW / document.documentElement.clientWidth) - 20) / 2;
+                        ml2 = ( 20 * (SLW / document.documentElement.clientWidth) - 20 - 10.56) / 2;
                         SL
                             .css('marginLeft', '-' + ml2 + 'rem')
 
 
                     }
-                },
-
-                mobNavHeight: function () {
-
                 }
             };
             // 事件初始化及绑定 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -113,7 +124,7 @@ $(function () {
                     rst = X > 0 ? nml - baz : nml + baz;
                     unit = 'px';
                 } else {
-                    nml = (+window.getComputedStyle(SL.get(0)).marginLeft.slice(0, -3)) * 20 / 412;
+                    nml = (+window.getComputedStyle(SL.get(0)).marginLeft.slice(0, -3)) * 20 / CW;
                     baz = Math.abs(X) * 10.56;
                     rst = X > 0 ? nml - baz : nml + baz;
                     unit = 'rem';
@@ -123,7 +134,7 @@ $(function () {
                     duration: 400,
                     complete: function () {
                         var bazz = 0;
-                        if (CW >= 1200 && CW < 1776) {
+                        if (CW >= 1200 && CW < 2264) {
                             bazz = ml
                         } else if (CW < 1200 && CW > 830) {
                             bazz = 304
@@ -136,7 +147,7 @@ $(function () {
                         if (X > 0) {
                             $('.solution-item:lt(' + X + ')').insertAfter('.solution-item:last');
                         } else {
-                            $('.solution-item:gt(' + (6 + X) + ')').insertBefore('.solution-item:first');
+                            $('.solution-item:gt(' + (9 + X) + ')').insertBefore('.solution-item:first');
                         }
                     }
                 })
@@ -205,9 +216,42 @@ $(function () {
         })();
     }
 
-    if (page == 'case') {
+    if (page == 'about') {
         (function () {
+            (function () {
+                var IT = window.I.offsetTop;
+                var HT = window.H.offsetTop;
+                var MT = window.m.offsetTop;
+                var BT = window.B.offsetTop;
+                var sub = $(window.ASB).find('.subnav-unit');
 
+                var A4 = {
+                    genHrPosition: function (a) {
+                        var b = CW < 830 ? a - 700 : a - 300;
+                        var c = CW < 830 ? a + CW * 100 / 750 : a;
+                        if (c > window.ASB.offsetTop) {
+                            window.ASB.classList.add('fixed')
+                        } else {
+                            window.ASB.classList.remove('fixed')
+                        }
+                        if (b < IT) {
+                            sub.removeClass('act').eq(0).addClass('act');
+                        } else if (b > IT && b < HT) {
+                            sub.removeClass('act').eq(1).addClass('act');
+                        } else if (b > HT && b < MT) {
+                            sub.removeClass('act').eq(2).addClass('act');
+                        } else if (b > MT && b < BT) {
+                            sub.removeClass('act').eq(3).addClass('act');
+                        }
+                    }
+                };
+
+                window.addEventListener('scroll', function () {
+                    var sT = $(this).scrollTop();
+                    A4.genHrPosition(sT)
+                }, false);
+
+            })();
         })()
     }
 });
