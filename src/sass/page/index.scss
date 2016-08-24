@@ -10,7 +10,7 @@
             @include res('m') {
                 min-width: 20rem;
                 width: 40rem;
-                transform: translateX(-24%);
+                transform: translateX(-15%);
             }
         }
     }
@@ -118,6 +118,7 @@
         @include res('m') {
             font-size: r(36);
             height: r(110);
+            padding: r(20) 0 r(20);
         }
     }
     .icon {
@@ -301,20 +302,26 @@
     }
     .partner-item {
         width: 200px;
-
+        height: 150px;
+        position: relative;
         .partner-link {
             display: block;
         }
         .p {
             display: block;
-            height: 150px;
-            background-size: 200px 150px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
         }
         @include res('m') {
             width: r(175);
+            height: r(131);
             .p {
-                height: r(131);
-                background-size: r(175) r(131);
+                width: r(150);
+                height: r(100);
             }
         }
     }

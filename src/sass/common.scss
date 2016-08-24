@@ -79,10 +79,12 @@ body {
             top: r(98);
             left: 0;
             right: 0;
+            bottom: r(-100);
             height: auto;
             z-index: 2;
             background: rgba(0,0,0, .7);
             transition: .3s ease-out;
+            transform: translate3d(0,0,0);
             &.show {
                 display: block;
                 animation: fadeIn .1s ease-out forwards;
@@ -113,9 +115,10 @@ body {
         box-sizing: border-box;
 
         @include res('m') {
-            position: absolute;
+            position: fixed;
             top: 0;
             right: 0;
+            bottom: r(-100);
             width: 12rem;
             padding: r(40) 0 0 0;
             background: rgb(255, 255, 255);
@@ -318,7 +321,7 @@ body {
 
 .back-to-top  {
     display: none;
-    z-index: 20;
+    z-index: 9;
     position: fixed;
     right: 20px;
     bottom: 20%;

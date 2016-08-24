@@ -17,11 +17,11 @@ $(function () {
     var navU = $('.nav-unit .n', '#nav')
     navU.each(function (i, e) {
         var c = $(e).attr('href');
-       if ( c.indexOf(page) != -1 ) {
-           $(e).addClass('now-in')
-       } else if (page == 'index') {
-           navU.eq(0).addClass('now-in')
-       }
+        if (c.indexOf(page) != -1) {
+            $(e).addClass('now-in')
+        } else if (page == 'index') {
+            navU.eq(0).addClass('now-in')
+        }
     });
 
     window.addEventListener('scroll', function () {
@@ -36,7 +36,7 @@ $(function () {
         Act.moveChoice(sT, WH)
     }, false);
     $('#backToTop').on('click', function () {
-        $('body,html').animate({ scrollTop: 0 }, 400);
+        $('body,html').animate({scrollTop: 0}, 400);
     });
     AOS.init();
 
@@ -55,9 +55,9 @@ $(function () {
     });
 
     if (CW <= 830) {
-        var DH = $(window).height()  + 'px';
+        var DH = $(window).height() + 'px';
 
-        $('.nav-body').css('height', DH)
+        $('.nav-body').css('height', DH);
         $('#nav').css('height', DH)
     }
 
