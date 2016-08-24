@@ -124,10 +124,11 @@ body {
             background: rgb(255, 255, 255);
         }
         .mob-nav-contact {
-            position: absolute;
+            //position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
+            padding-top: r(150);
             height: r(180);
             .contact-field {
                 display: block;
