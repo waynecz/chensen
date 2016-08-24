@@ -151,7 +151,7 @@ gulp.task('dev',
 );
 
 gulp.task('prod',
-    gulp.series('css:pro', 'sp', 'img')
+    gulp.series('css:pro')
 );
 
 // 一次性任务
