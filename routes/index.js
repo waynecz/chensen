@@ -38,6 +38,14 @@ router.get('/about', function (req, res, next) {
     res.renderPage('about', pageData);
 });
 
+router.all('/dongge', function (req, res, next) {
+    res.send({
+        title: '东哥大傻逼',
+        img: ['http://parnote.com:5000/imgs/news_banner', 'http://parnote.com:5000/imgs/news_banner_2','http://parnote.com:5000/imgs/news_banner_3', 'http://parnote.com:5000/imgs/news_banner_4'],
+        content: [1,2,3,4]
+    })
+});
+
 router.use('/news', require('./news'));
 
 module.exports = router;
